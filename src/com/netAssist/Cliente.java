@@ -61,10 +61,6 @@ public class Cliente extends Pessoa{
     public void setSenhaAcesso(String senhaAcesso) {
         login.setSenhaAcesso(senhaAcesso);
     }
-
-    public String toString() {
-        return login.toString();
-    }
     
     public int getVelocidade() {
         return contrato.getVelocidade();
