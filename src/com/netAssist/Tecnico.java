@@ -11,81 +11,56 @@ public class Tecnico extends Funcionario{
     public Tecnico(String usuario, String senha, String cargo, String nome, String cpf, Endereco end) {
         super(usuario, senha, cargo, nome, cpf, end);
     }
-    
-    
-    //Método para realizar a inserção do Cliente no ArrayList
-    public void cadastrarCliente(ArrayList<Cliente> listaCliente, Cliente cliente, int autent, int con){
+     
+    //Metodo para realizar insercao de Cliente em em ArrayList
+    public void cadastrarCliente(ArrayList<Cliente> listaCliente){
+    	Logins login = new Logins();
         Cliente novoCliente = new Cliente();
         Contrato novoContrato = new Contrato();
         Logins novoLogin = new Logins();
+        Cpf novoCpf = new Cpf();
+        Senha novaSenha = new Senha();
         novoCliente.setContrato(novoContrato);
         novoCliente.setLogin(novoLogin);
-        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRO DE CLIENTES!\nNOME: "));
-        novoCliente.setCpf(JOptionPane.showInputDialog("CPF: "));       
-        novoCliente.setIdCliente(Integer.parseInt(JOptionPane.showInputDialog("ID: ")));
-        novoContrato.setVelocidade(Integer.parseInt(JOptionPane.showInputDialog("INFORMAÇÕES DO PLANO!\nVELOCIDADE: ")));
-        novoContrato.setValorMensal(Float.parseFloat(JOptionPane.showInputDialog("VALOR DO PLANO: ")));
-        novoContrato.setStatusContrato(Integer.parseInt(JOptionPane.showInputDialog("1 - Ativo\n2 - Cancelado\n3 - Bloqueado\nDIGITE O VALOR CORRESPONDENTE: ")));
-        if(autent == 1){
-            novoLogin.setAutenticacao("Hotspot");
+        String status;
+        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
+        novoCliente.setCpf(novoCpf.validarCpf());       
+        novoCliente.setVelocidade(Integer.parseInt(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: ")));
+        novoCliente.setValorMensal(Float.parseFloat(JOptionPane.showInputDialog("VALOR DO PLANO: ")));
+        status = login.validarOpcaoStatus();
+        if(status.equals("1")){
+        	novoCliente.setStatusContrato("Ativo");
         }
-        else if(autent == 2){
-            novoLogin.setAutenticacao("PPPoe");
+        else if(status.equals("2")){
+        	novoCliente.setStatusContrato("Cancelado");
         }
-        else{
-            novoLogin.setAutenticacao("IPoE");
+        else if(status.equals("3")){
+        	novoCliente.setStatusContrato("Bloqueado");
         }
-        if(con == 1){
-            novoLogin.setTipoConexao("5.8");
+        status = login.validarOpcaoAutenticacao();
+        if(status.equals("1")){
+        	novoCliente.setAutenticacao("PPPoE");
         }
-        else if(con == 2){
-            novoLogin.setTipoConexao("Cabo");
+        else if(status.equals("2")){
+        	novoCliente.setAutenticacao("Hotspot");
         }
-        else{
-            novoLogin.setTipoConexao("Fibra");
-        }
-        
-        novoLogin.setLoginAcesso(JOptionPane.showInputDialog("LOGIN DE ACESSO: "));
-        novoLogin.setSenhaAcesso(JOptionPane.showInputDialog("SENHA DE ACESSO: "));
-        //Os outros atributos foram abstraido;
+        novoCliente.setLoginAcesso(JOptionPane.showInputDialog("LOGIN DE ACESSO: "));
+        novoCliente.setSenhaAcesso(novaSenha.validarSenhaCliente(listaCliente));
         listaCliente.add(novoCliente);
     }
-    //Método para realizar a remoção do Cliente no ArrayList
-    public void removerCliente(ArrayList<Cliente> listaCliente, String cpf){
-        for(int i=0; i<listaCliente.size(); i++){
-                if(listaCliente.get(i).getCpf().equals(cpf)){
-                    index = i;
-                }
-            }
-        listaCliente.remove(index);
-    }
-   
-    //Método para listar todos os Clientes do ArrayList
-    public void listarCliente(ArrayList<Cliente> listaCliente){
-        for(int i=0; i<listaCliente.size(); i++){
-                System.out.println("NOME = " + listaCliente.get(i).getNome() + " -> CPF = " + listaCliente.get(i).getCpf());
-            }
-    }
-    public void mudarAutenticacao(Cliente cliente, int tipo){
-        if(tipo == 1){
-             cliente.setAutenticacao("Hotspot");
-        }
-        else if(tipo == 2){
-             cliente.setAutenticacao("PPPoe");
-        }
-        else{
-             cliente.setAutenticacao("IPoE");
-        }
-    }
-    public void mudarConexao(Cliente cliente, int tipo){
-        if(tipo == 1){
-             cliente.setTipoConexao("5.8");
-        }
-        else if(tipo == 2){
-             cliente.setTipoConexao("Cabo");
-        }
-        else{
-             cliente.setTipoConexao("Fibra");
-        }
+    public void alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
+		if(id.equals("1")){
+			listaCliente.get(indice).setStatusContrato("Ativo");;
+		}
+		else if(id.equals("2")){
+			listaCliente.get(indice).setStatusContrato("Cancelado");
+		}
+		else{
+			listaCliente.get(indice).setStatusContrato("Bloqueado");
+		}
+	}   
+    //Metodo para deletar Cliente da lista
+    public void deletarCliente(ArrayList<Cliente> listaCliente, int id){
+        listaCliente.remove(id);
     }
 }

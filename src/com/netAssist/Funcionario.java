@@ -2,6 +2,8 @@ package com.netAssist;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Funcionario extends Pessoa{
     
     private String usuario;
@@ -40,27 +42,51 @@ public class Funcionario extends Pessoa{
     public void setCargo(String cargo) {
         this.cargo = cargo;
     } 
-    @Override
-    public String toString() {
-        return "Funcionario{" + "usuario=" + usuario + ", senha=" + senha + ", cargo=" + cargo + '}';
-    }
     
     //Metodo para verificar a autenticidade dos funcionarios listados! 
-    public boolean efetuarLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
-        int at = 0;
+    public int efetuarLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
+        int at = -1;
+        int atAux;
         for(int i=0; i<listaFuncionario.size(); i++){
             if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
-                at = 1;
+                at = 2;
                 break;
             }
         }
-        if(at == 0){
-            System.out.println("Erro de Autenticação!");
-            return false;
+        if(at == -1){
+        	atAux = JOptionPane.showConfirmDialog(null, "Erro de Autenticacao, deseja tentar novamente?");
+            if(atAux == 0){
+            	System.out.println(atAux);
+            	return 0;
+            }
+            else{
+            	return 1;
+            }
         }
-        else{
-            System.out.println("Entrando do Sistema! Aguarde um pouco!");
-            return true;
+        else{        
+            return 2;
+        }
+    }
+    public int verificarIndiceLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
+        int at = 0;
+        for(int i=0; i<listaFuncionario.size(); i++){
+            if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
+                at = i;
+                break;
+            }
+        }
+        return at;
+    }
+    
+    public void listarFuncionario(ArrayList<Funcionario> listaFuncionario){
+        for(int i=0; i<listaFuncionario.size(); i++){
+        		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n" + listaFuncionario.get(i).getNome() + " -> " + listaFuncionario.get(i).getCpf() + " -> " + listaFuncionario.get(i).getCargo());
+            }
+    }
+  //Metodo para listar todos os Clientes do ArrayList
+    public void listarCliente(ArrayList<Cliente> listaCliente){
+        for(int i=0; i<listaCliente.size(); i++){
+        	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n" + listaCliente.get(i).getNome() + " -> " + listaCliente.get(i).getCpf() + " -> " + listaCliente.get(i).getStatusContrato() + " -> " + listaCliente.get(i).getAutenticacao());
         }
     }
 }

@@ -12,7 +12,6 @@ public class Senha {
 		do{
 			senha = JOptionPane.showInputDialog("SENHA DE ACESSO: ");
 			if(listaFuncionario.size()>=1 && listaFuncionario.get(0).getSenha() != null){
-				//System.out.println(listaFuncionario.size());
 				for(i=0; i<listaFuncionario.size(); i++){
 					if(listaFuncionario.get(i).getSenha().equals(senha)){
 						JOptionPane.showMessageDialog(null, "Senha Existente!");
@@ -25,8 +24,28 @@ public class Senha {
 			}
 			else{
 				teste = 1;
-				//System.out.println("Desviou");
-
+			}
+			
+		}while(teste == 0);
+		return senha;
+	}
+	
+	public String validarSenhaCliente(ArrayList<Cliente> listaCliente){
+		do{
+			senha = JOptionPane.showInputDialog("SENHA DE ACESSO: ");
+			if(listaCliente.size()>=1 && listaCliente.get(0).getSenhaAcesso() != null){
+				for(i=0; i<listaCliente.size(); i++){
+					if(listaCliente.get(i).getSenhaAcesso().equals(senha)){
+						JOptionPane.showMessageDialog(null, "Senha Existente!");
+						break;
+					}
+				}
+				if(i == listaCliente.size()){
+					teste = 1;
+				}
+			}
+			else{
+				teste = 1;
 			}
 			
 		}while(teste == 0);

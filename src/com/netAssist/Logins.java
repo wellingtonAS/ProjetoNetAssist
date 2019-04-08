@@ -1,5 +1,7 @@
 package com.netAssist;
 
+import javax.swing.JOptionPane;
+
 public class Logins {
     private String autenticacao;
     private String tipoConexao;
@@ -14,7 +16,7 @@ public class Logins {
         this.senhaAcesso = senhaAcesso;
       
     }
-    
+    String option;
     public String getAutenticacao() {
         return autenticacao;
     }
@@ -45,5 +47,28 @@ public class Logins {
 
     public void setSenhaAcesso(String senhaAcesso) {
         this.senhaAcesso = senhaAcesso;
-    }   
+    } 
+    
+    public String validarOpcaoStatus(){
+        do{
+            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n1 - Ativo\n2 - Cancelado\n3 - Bloqueado\n"
+            		+ "DIGITE O VALOR CORRESPONDENTE: ");
+            
+            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
+            
+        }while(!(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")));
+        return option;
+    }
+    
+    public String validarOpcaoAutenticacao(){
+        do{
+            option = JOptionPane.showInputDialog("TIPO DE AUTENTICACAO\n1 - PPPoE\n2 - Hotspot\nDIGITE O VALOR CORRESPONDENTE: ");
+            
+            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
+            
+        }while(!(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")));
+        return option;
+    }
+    
+    
 }

@@ -1,20 +1,17 @@
 package com.netAssist;
 
 public class Cliente extends Pessoa{
-    private int idCliente;
     private Contrato contrato;
     private Logins login;
 
     
     public Cliente(){}
-    public Cliente(int idCliente, Contrato contrato, String nome, String cpf, Endereco end) {
+    public Cliente( Contrato contrato, String nome, String cpf, Endereco end) {
         super(nome, cpf, end);
-        this.idCliente = idCliente;
         this.contrato = contrato;
     }
 
-    public Cliente(int idCliente, Contrato contrato) {
-        this.idCliente = idCliente;
+    public Cliente(Contrato contrato) {
         this.contrato = contrato;
     }
 
@@ -24,14 +21,6 @@ public class Cliente extends Pessoa{
 
     public void setLogin(Logins login) {
         this.login = login;
-    }
-
-    public int getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
     }
 
     public Contrato getContrato() {
@@ -93,11 +82,11 @@ public class Cliente extends Pessoa{
         contrato.setValorMensal(valorMensal);
     }
 
-    public int getStatusContrato() {
+    public String getStatusContrato() {
         return contrato.getStatusContrato();
     }
 
-    public void setStatusContrato(int statusContrato) {
+    public void setStatusContrato(String statusContrato) {
         contrato.setStatusContrato(statusContrato);
     }
     

@@ -2,13 +2,13 @@ package com.netAssist;
 
 public class Contrato {
     private int velocidade;
-    private Float valorMensal;
-    private int statusContrato;
+    private float valorMensal;
+    private String statusContrato;
 
     public Contrato(){
         
     }
-    public Contrato(int velocidade, Float valorMensal, int statusContrato) {
+    public Contrato(int velocidade, float valorMensal, String statusContrato) {
         this.velocidade = velocidade;
         this.valorMensal = valorMensal;
         this.statusContrato = statusContrato;
@@ -26,15 +26,15 @@ public class Contrato {
         return valorMensal;
     }
 
-    public void setValorMensal(Float valorMensal) {
+    public void setValorMensal(float valorMensal) {
         this.valorMensal = valorMensal;
     }
 
-    public int getStatusContrato() {
+    public String getStatusContrato() {
         return statusContrato;
     }
 
-    public void setStatusContrato(int statusContrato) {
+    public void setStatusContrato(String statusContrato) {
         this.statusContrato = statusContrato;
     }
     
