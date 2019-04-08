@@ -32,9 +32,6 @@ public class Tecnico extends Funcionario{
         	novoCliente.setStatusContrato("Ativo");
         }
         else if(status.equals("2")){
-        	novoCliente.setStatusContrato("Cancelado");
-        }
-        else if(status.equals("3")){
         	novoCliente.setStatusContrato("Bloqueado");
         }
         status = login.validarOpcaoAutenticacao();
@@ -53,9 +50,6 @@ public class Tecnico extends Funcionario{
 			listaCliente.get(indice).setStatusContrato("Ativo");;
 		}
 		else if(id.equals("2")){
-			listaCliente.get(indice).setStatusContrato("Cancelado");
-		}
-		else{
 			listaCliente.get(indice).setStatusContrato("Bloqueado");
 		}
 	}   
