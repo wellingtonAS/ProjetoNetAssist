@@ -56,7 +56,6 @@ public class Funcionario extends Pessoa{
         if(at == -1){
         	atAux = JOptionPane.showConfirmDialog(null, "Erro de Autenticacao, deseja tentar novamente?");
             if(atAux == 0){
-            	System.out.println(atAux);
             	return 0;
             }
             else{
