@@ -20,8 +20,10 @@ public class NetAssist {
         Cpf cpf = new Cpf();
         Logins logins = new Logins();
         Cliente cliente = new Cliente(); //MODIFICADO
+        cliente.setLogin(logins); //MODIFICADO
         String id = null;  
         cliente.setNome(null);
+        
         listaClientes.add(cliente);//MODIFICADO
         int ver = 0;
         int index;
