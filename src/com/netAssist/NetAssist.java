@@ -17,12 +17,12 @@ public class NetAssist {
         Funcionario funcionario = new Funcionario();
         Cpf cpf = new Cpf();
         Logins logins = new Logins();
+        Endereco endereco = new Endereco(); //MODIFICADO
         Contrato contrato = new Contrato(); // MODIFICADO
         Cliente cliente = new Cliente(); //MODIFICADO
+        cliente.setEnd(endereco); //MODIFICADO
         cliente.setContrato(contrato); //MODIFICADO
         cliente.setLogin(logins); //MODIFICADO
-        cliente.setNome(null);
-        cliente.setCpf(null);
         String id = null;          
         listaClientes.add(cliente);//MODIFICADO
         int ver = 0;
@@ -131,14 +131,7 @@ public class NetAssist {
         				}
         			}
         			else if(id.equals("8")){
-        				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-        				System.out.println(listaClientes.size());
-        				System.out.println(listaClientes.isEmpty());
-        				System.out.println(listaClientes.get(index));
-        				System.out.println(listaClientes.toString());
-        				System.out.println(listaClientes.toArray());
-        				//System.out.println(listaClientes.);
-        				//funcionario.listarCliente(listaClientes);
+        				funcionario.listarCliente(listaClientes);
         			}
         			
         		}while(!(id.equals("9")) && !(id.equals("0")));
