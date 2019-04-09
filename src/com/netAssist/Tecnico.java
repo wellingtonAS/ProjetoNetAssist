@@ -19,6 +19,8 @@ public class Tecnico extends Funcionario{
         Logins novoLogin = new Logins();
         Cpf novoCpf = new Cpf();
         Senha novaSenha = new Senha();
+	Endereco novoEndereco = new Endereco();
+	novoCliente.setEnd(novoEndereco);
         novoCliente.setContrato(novoContrato);
         novoCliente.setLogin(novoLogin);
         String status;
