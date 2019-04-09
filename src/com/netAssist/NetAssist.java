@@ -24,7 +24,6 @@ public class NetAssist {
         cliente.setContrato(contrato); //MODIFICADO
         cliente.setLogin(logins); //MODIFICADO
         String id = null;          
-        listaClientes.add(cliente);//MODIFICADO
         int ver = 0;
         int index;
         int indexLogin;
