@@ -75,7 +75,7 @@ public class Funcionario extends Pessoa{
     }
   //Metodo para listar todos os Clientes do ArrayList
     public void listarCliente(ArrayList<Cliente> listaCliente){
-    	if(listaCliente.size() >= 1) {  
+    	if(listaCliente.size() >= 1 && listaCliente.isEmpty() != true) {  
     		for(i=0; i<listaCliente.size(); i++){
             	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n" + listaCliente.get(i).getNome() + " -> " + listaCliente.get(i).getCpf() + " -> " + listaCliente.get(i).getStatusContrato() + " -> " + listaCliente.get(i).getAutenticacao());
             }
