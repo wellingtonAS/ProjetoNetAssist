@@ -9,6 +9,9 @@ public class Funcionario extends Pessoa{
     private String usuario;
     private String senha;
     private String cargo;
+    public int at = -1;
+    public int atAux;
+    public int i;
     
     public Funcionario(){
         super();
@@ -45,9 +48,7 @@ public class Funcionario extends Pessoa{
     
     //Metodo para verificar a autenticidade dos funcionarios listados! 
     public int efetuarLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
-        int at = -1;
-        int atAux;
-        for(int i=0; i<listaFuncionario.size(); i++){
+        for(i=0; i<listaFuncionario.size(); i++){
             if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
                 at = 2;
                 break;
@@ -66,26 +67,16 @@ public class Funcionario extends Pessoa{
             return 2;
         }
     }
-    public int verificarIndiceLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
-        int at = 0;
-        for(int i=0; i<listaFuncionario.size(); i++){
-            if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
-                at = i;
-                break;
-            }
-        }
-        return at;
-    }
-    
+      
     public void listarFuncionario(ArrayList<Funcionario> listaFuncionario){
-        for(int i=0; i<listaFuncionario.size(); i++){
+        for(i=0; i<listaFuncionario.size(); i++){
         		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n" + listaFuncionario.get(i).getNome() + " -> " + listaFuncionario.get(i).getCpf() + " -> " + listaFuncionario.get(i).getCargo());
             }
     }
   //Metodo para listar todos os Clientes do ArrayList
     public void listarCliente(ArrayList<Cliente> listaCliente){
     	if(listaCliente.size() >= 1) {  
-    		for(int i=0; i<listaCliente.size(); i++){
+    		for(i=0; i<listaCliente.size(); i++){
             	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n" + listaCliente.get(i).getNome() + " -> " + listaCliente.get(i).getCpf() + " -> " + listaCliente.get(i).getStatusContrato() + " -> " + listaCliente.get(i).getAutenticacao());
             }
     	}

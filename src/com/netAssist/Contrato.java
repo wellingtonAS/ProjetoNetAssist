@@ -1,32 +1,32 @@
 package com.netAssist;
 
-public class Contrato {
-    private int velocidade;
-    private float valorMensal;
-    private String statusContrato;
+import javax.swing.JOptionPane;
 
-    public Contrato(){
-        
-    }
-    public Contrato(int velocidade, float valorMensal, String statusContrato) {
+public class Contrato {
+    private String velocidade;
+    private String valorMensal;
+    private String statusContrato;
+    public String option;
+    public Contrato(){}
+    public Contrato(String velocidade, String valorMensal, String statusContrato) {
         this.velocidade = velocidade;
         this.valorMensal = valorMensal;
         this.statusContrato = statusContrato;
     }
     
-    public int getVelocidade() {
+    public String getVelocidade() {
         return velocidade;
     }
 
-    public void setVelocidade(int velocidade) {
+    public void setVelocidade(String velocidade) {
         this.velocidade = velocidade;
     }
 
-    public float getValorMensal() {
+    public String getValorMensal() {
         return valorMensal;
     }
 
-    public void setValorMensal(float valorMensal) {
+    public void setValorMensal(String valorMensal) {
         this.valorMensal = valorMensal;
     }
 
@@ -36,6 +36,17 @@ public class Contrato {
 
     public void setStatusContrato(String statusContrato) {
         this.statusContrato = statusContrato;
+    }
+    
+    public String validarOpcaoStatus(){
+        do{
+            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n1 - Ativo\n2 - Bloqueado\n"
+            		+ "DIGITE O VALOR CORRESPONDENTE: ");
+            
+            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
+            
+        }while(!(option.equals("1")) && !(option.equals("2")));
+        return option;
     }
     
 }

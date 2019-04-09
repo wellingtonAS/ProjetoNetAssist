@@ -62,19 +62,19 @@ public class Cliente extends Pessoa{
         login.setSenhaAcesso(senhaAcesso);
     }
     
-    public int getVelocidade() {
+    public String getVelocidade() {
         return contrato.getVelocidade();
     }
 
-    public void setVelocidade(int velocidade) {
+    public void setVelocidade(String velocidade) {
         contrato.setVelocidade(velocidade);
     }
 
-    public float getValorMensal() {
+    public String getValorMensal() {
         return contrato.getValorMensal();
     }
 
-    public void setValorMensal(Float valorMensal) {
+    public void setValorMensal(String valorMensal) {
         contrato.setValorMensal(valorMensal);
     }
 

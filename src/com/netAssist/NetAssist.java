@@ -10,8 +10,6 @@ public class NetAssist {
         //Instanciamento dos Arrays
         ArrayList<Funcionario> listaFuncionarios = new ArrayList();
         ArrayList<Cliente> listaClientes = new ArrayList();
-        ArrayList<Endereco> listaEndFuncionario = new ArrayList();
-        ArrayList<Endereco> listaEndClientes = new ArrayList();
        
         Menu opcao = new Menu();
         Adm adm = new Adm();
@@ -23,9 +21,9 @@ public class NetAssist {
         Cliente cliente = new Cliente(); //MODIFICADO
         cliente.setContrato(contrato); //MODIFICADO
         cliente.setLogin(logins); //MODIFICADO
-        String id = null;  
         cliente.setNome(null);
-        
+        cliente.setCpf(null);
+        String id = null;          
         listaClientes.add(cliente);//MODIFICADO
         int ver = 0;
         int index;
@@ -39,7 +37,7 @@ public class NetAssist {
             funcionario.setSenha(JOptionPane.showInputDialog("SENHA: "));
             ver = funcionario.efetuarLogin(funcionario, listaFuncionarios);
         	if(ver == 2){
-        		indexLogin = funcionario.verificarIndiceLogin(funcionario, listaFuncionarios);
+        		indexLogin = logins.verificarIndiceLogin(funcionario, listaFuncionarios);
         		do{
         			id = opcao.exibirMenu();
         			if(id.equals("1")){
@@ -102,7 +100,7 @@ public class NetAssist {
         					tecnico.setCpf(cpf.validarCpf());
             				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
             				if(index != 0){
-                				id = logins.validarOpcaoStatus();
+                				id = contrato.validarOpcaoStatus();
                 				tecnico.alterarStatusCliente(listaClientes, index, id); 
                 				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
             				}
@@ -133,7 +131,14 @@ public class NetAssist {
         				}
         			}
         			else if(id.equals("8")){
-        				funcionario.listarCliente(listaClientes);
+        				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
+        				System.out.println(listaClientes.size());
+        				System.out.println(listaClientes.isEmpty());
+        				System.out.println(listaClientes.get(index));
+        				System.out.println(listaClientes.toString());
+        				System.out.println(listaClientes.toArray());
+        				//System.out.println(listaClientes.);
+        				//funcionario.listarCliente(listaClientes);
         			}
         			
         		}while(!(id.equals("9")) && !(id.equals("0")));

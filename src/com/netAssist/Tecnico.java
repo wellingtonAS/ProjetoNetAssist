@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Tecnico extends Funcionario{
-    int index;
 
     public Tecnico(){}
 
@@ -25,9 +24,9 @@ public class Tecnico extends Funcionario{
         String status;
         novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
         novoCliente.setCpf(novoCpf.validarCpf());       
-        novoCliente.setVelocidade(Integer.parseInt(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: ")));
-        novoCliente.setValorMensal(Float.parseFloat(JOptionPane.showInputDialog("VALOR DO PLANO: ")));
-        status = login.validarOpcaoStatus();
+        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
+        novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
+        status = novoContrato.validarOpcaoStatus();
         if(status.equals("1")){
         	novoCliente.setStatusContrato("Ativo");
         }

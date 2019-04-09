@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Senha {
-	String senha;
-	int teste = 0;
-	int i;
+	public String senha;
+	public int teste = 0;
+	public int i;
 	public String validarSenha(ArrayList<Funcionario> listaFuncionario){
 		do{
 			senha = JOptionPane.showInputDialog("SENHA DE ACESSO: ");

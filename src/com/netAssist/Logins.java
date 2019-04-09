@@ -1,5 +1,7 @@
 package com.netAssist;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Logins {
@@ -16,7 +18,7 @@ public class Logins {
         this.senhaAcesso = senhaAcesso;
       
     }
-    String option;
+    public String option;
     public String getAutenticacao() {
         return autenticacao;
     }
@@ -49,17 +51,6 @@ public class Logins {
         this.senhaAcesso = senhaAcesso;
     } 
     
-    public String validarOpcaoStatus(){
-        do{
-            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n1 - Ativo\n2 - Bloqueado\n"
-            		+ "DIGITE O VALOR CORRESPONDENTE: ");
-            
-            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
-            
-        }while(!(option.equals("1")) && !(option.equals("2")));
-        return option;
-    }
-    
     public String validarOpcaoAutenticacao(){
         do{
             option = JOptionPane.showInputDialog("TIPO DE AUTENTICACAO\n1 - PPPoE\n2 - Hotspot\nDIGITE O VALOR CORRESPONDENTE: ");
@@ -70,5 +61,15 @@ public class Logins {
         return option;
     }
     
+    public int verificarIndiceLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
+        int at = 0;
+        for(int i=0; i<listaFuncionario.size(); i++){
+            if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
+                at = i;
+                break;
+            }
+        }
+        return at;
+    }
     
 }

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Cpf {
-	String cpf;
-	int tam;
-	int test = 0;
+	public String cpf;
+	public int tam;
+	public int test = 0;
     public String validarCpf(){
     	do{
     		cpf = JOptionPane.showInputDialog("CPF (Sem Postos e virgulas): ");

@@ -10,10 +10,8 @@ public class Adm extends Funcionario{
     public Adm(String usuario, String senha, String cargo, String nome, String cpf, Endereco end) {
         super(usuario, senha, cargo, nome, cpf, end);
     }
-    String cpfAux;
     Cpf novoCpf = new Cpf();
     Senha novaSenha = new Senha();
-    int index;
     public void cadastrarFuncionario(ArrayList<Funcionario> listaFuncionario, String id){
         if(id.equals("1")){
             Endereco novoEndereco = new Endereco();
