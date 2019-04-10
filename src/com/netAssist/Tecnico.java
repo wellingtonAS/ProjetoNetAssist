@@ -24,11 +24,11 @@ public class Tecnico extends Funcionario{
         novoCliente.setContrato(novoContrato);
         novoCliente.setLogin(novoLogin);
         String status;
-        //novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
+        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
         novoCliente.setCpf(novoCpf.validarCpf());       
-        //novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
-        //novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
-        /*status = novoContrato.validarOpcaoStatus();
+        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
+        novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
+        status = novoContrato.validarOpcaoStatus();
         if(status.equals("1")){
         	novoCliente.setStatusContrato("Ativo");
         }
@@ -41,7 +41,7 @@ public class Tecnico extends Funcionario{
         }
         else if(status.equals("2")){
         	novoCliente.setAutenticacao("Hotspot");
-        }*/
+        }
         novoCliente.setLoginAcesso(novaSenha.validarUsuarioCliente(listaCliente));
         novoCliente.setSenhaAcesso(JOptionPane.showInputDialog("SENHA DE AUTENTICACAO: "));
         
