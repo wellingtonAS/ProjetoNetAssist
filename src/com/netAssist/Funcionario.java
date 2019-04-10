@@ -77,7 +77,12 @@ public class Funcionario extends Pessoa{
     public void listarCliente(ArrayList<Cliente> listaCliente){
     	if(listaCliente.size() >= 1 && listaCliente.isEmpty() != true) {  
     		for(i=0; i<listaCliente.size(); i++){
-            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n" + listaCliente.get(i).getNome() + " -> " + listaCliente.get(i).getCpf() + " -> " + listaCliente.get(i).getStatusContrato() + " -> " + listaCliente.get(i).getAutenticacao());
+            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\nNOME: " + listaCliente.get(i).getNome() + "\n"
+            			+ "CPF: " + listaCliente.get(i).getCpf() + "\nCIDADE: " + listaCliente.get(i).getCidade() + "\n"
+            					+ "ESTADO: " + listaCliente.get(i).getEstado() + "\nSTATUS DO CONTRATO: " + listaCliente.get(i).getStatusContrato() + "\n"
+            					+ "VELOCIDADE DO PLANO: " + listaCliente.get(i).getVelocidade() + "M" + "\nVALOR DO PLANO: R$" + listaCliente.get(i).getValorMensal() + "\n"
+            							+ "TIPO DE AUTENTICACAO: " + listaCliente.get(i).getAutenticacao() + "\n"
+            							+ "LOGIN DE ACESSO: " + listaCliente.get(i).getLoginAcesso());
             }
     	}
     	else {

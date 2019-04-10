@@ -57,6 +57,9 @@ public class Logins {
             
             option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
             
+            if(!(option.equals("1")) && !(option.equals("2")) && !(option.equals("3"))){
+            	JOptionPane.showMessageDialog(null, "Por Favor Digite Um Tipo de Autenticacao Valido!");
+            }      
         }while(!(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")));
         return option;
     }
@@ -71,5 +74,7 @@ public class Logins {
         }
         return at;
     }
+    
+    
     
 }

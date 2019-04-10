@@ -8,9 +8,12 @@ public class Menu {
         do{
             option = JOptionPane.showInputDialog("BEM VINDO A NET ASSIST!\nQue operacao voce deseja fazer?\n"
                 + "1 - Cadastro de Funcionario\n2 - Alterar Usuario de Acesso\n3 - Deletar Funcionario\n4 - Listar Funcionarios\n"
-                + "5 - Cadastrar Clientes\n6 - Mudar Status do Cliente\n7 - Deletar Cliente\n8 - Listar Clientes\n9 Sair do Sistema\nDigite a qualquer momento 0 para sair!");
+                + "5 - Cadastrar Clientes\n6 - Mudar Status do Cliente\n7 - Deletar Cliente\n8 - Listar Clientes\n9 - Sair do Sistema e Realizar Novo Login\nDigite a qualquer momento 0 para sair!");
             
             option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
+            if(!(option.equals("0")) && !(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")) && !(option.equals("4")) && !(option.equals("5")) && !(option.equals("6")) && !(option.equals("7")) && !(option.equals("8")) && !(option.equals("9"))){
+            	JOptionPane.showMessageDialog(null, "Por Favor, Digite Uma Opcao Valida!");
+            }
             
         }while(!(option.equals("0")) && !(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")) && !(option.equals("4")) && !(option.equals("5")) && !(option.equals("6")) && !(option.equals("7")) && !(option.equals("8")) && !(option.equals("9")));
         return option;
@@ -30,6 +33,9 @@ public class Menu {
     		}
     		else{
     			option = option.replaceAll(" ", "");
+    		}
+    		if(!(option.equals("1")) && !(option.equals("2"))){
+    			JOptionPane.showMessageDialog(null, "Por Favor Digite Um Tipo de Funcionario Valido!");
     		}
     	}while(!(option.equals("1")) && !(option.equals("2")));
     	return option;

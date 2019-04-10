@@ -19,16 +19,16 @@ public class Tecnico extends Funcionario{
         Logins novoLogin = new Logins();
         Cpf novoCpf = new Cpf();
         Senha novaSenha = new Senha();
-	Endereco novoEndereco = new Endereco();
-	novoCliente.setEnd(novoEndereco);
+        Endereco novoEndereco = new Endereco();
+        novoCliente.setEnd(novoEndereco);
         novoCliente.setContrato(novoContrato);
         novoCliente.setLogin(novoLogin);
         String status;
-        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
+        //novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
         novoCliente.setCpf(novoCpf.validarCpf());       
-        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
-        novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
-        status = novoContrato.validarOpcaoStatus();
+        //novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
+        //novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
+        /*status = novoContrato.validarOpcaoStatus();
         if(status.equals("1")){
         	novoCliente.setStatusContrato("Ativo");
         }
@@ -41,9 +41,10 @@ public class Tecnico extends Funcionario{
         }
         else if(status.equals("2")){
         	novoCliente.setAutenticacao("Hotspot");
-        }
-        novoCliente.setLoginAcesso(JOptionPane.showInputDialog("LOGIN DE ACESSO: "));
-        novoCliente.setSenhaAcesso(novaSenha.validarSenhaCliente(listaCliente));
+        }*/
+        novoCliente.setLoginAcesso(novaSenha.validarUsuarioCliente(listaCliente));
+        novoCliente.setSenhaAcesso(JOptionPane.showInputDialog("SENHA DE AUTENTICACAO: "));
+        
         listaCliente.add(novoCliente);
     }
     public void alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){

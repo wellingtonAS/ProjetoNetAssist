@@ -5,21 +5,25 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Senha {
-	public String senha;
+	public String usuario;
 	public int teste = 0;
 	public int i;
-	public String validarSenha(ArrayList<Funcionario> listaFuncionario){
+	public String validarUsuario(ArrayList<Funcionario> listaFuncionario){
 		do{
-			senha = JOptionPane.showInputDialog("SENHA DE ACESSO: ");
-			if(listaFuncionario.size()>=1 && listaFuncionario.get(0).getSenha() != null){
+			usuario = JOptionPane.showInputDialog("USUARIO DE ACESSO: ");
+			if(listaFuncionario.size()>=1 && listaFuncionario.isEmpty() != true){
 				for(i=0; i<listaFuncionario.size(); i++){
-					if(listaFuncionario.get(i).getSenha().equals(senha)){
-						JOptionPane.showMessageDialog(null, "Senha Existente!");
+					if(listaFuncionario.get(i).getUsuario().equals(usuario)){
+						JOptionPane.showMessageDialog(null, "Existe Funcionario com Este Usuario, Tente Novamente!");
+						teste = 0;
 						break;
 					}
 				}
-				if(i == listaFuncionario.size()){
+				if(listaFuncionario.size() == i){
 					teste = 1;
+				}
+				else{
+					teste = 0;
 				}
 			}
 			else{
@@ -27,21 +31,25 @@ public class Senha {
 			}
 			
 		}while(teste == 0);
-		return senha;
+		return usuario;
 	}
 	
-	public String validarSenhaCliente(ArrayList<Cliente> listaCliente){
+	public String validarUsuarioCliente(ArrayList<Cliente> listaCliente){
 		do{
-			senha = JOptionPane.showInputDialog("SENHA DE ACESSO: ");
-			if(listaCliente.size()>=1 && listaCliente.get(0).getSenhaAcesso() != null){
+			usuario = JOptionPane.showInputDialog("USUARIO DE ACESSO: ");
+			if(listaCliente.size()>=1 && listaCliente.isEmpty() != true){
 				for(i=0; i<listaCliente.size(); i++){
-					if(listaCliente.get(i).getSenhaAcesso().equals(senha)){
-						JOptionPane.showMessageDialog(null, "Senha Existente!");
+					if(listaCliente.get(i).getLoginAcesso().equals(usuario)){
+						JOptionPane.showMessageDialog(null, "Existe Cliente com Este Usuario de Autenticacao, Tente Novamente!");
+						teste = 0;
 						break;
 					}
 				}
-				if(i == listaCliente.size()){
+				if(listaCliente.size() == i){
 					teste = 1;
+				}
+				else{
+					teste = 0;
 				}
 			}
 			else{
@@ -49,6 +57,6 @@ public class Senha {
 			}
 			
 		}while(teste == 0);
-		return senha;
+		return usuario;
 	}
 }

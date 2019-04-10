@@ -18,15 +18,16 @@ public class Adm extends Funcionario{
             Tecnico novoTecnico = new Tecnico();
             novoTecnico.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoTecnico.setNome(JOptionPane.showInputDialog("CADASTRAR TECNICO!\nNOME: ").trim().toUpperCase());
+            //novoTecnico.setNome(JOptionPane.showInputDialog("CADASTRAR TECNICO!\nNOME: ").trim().toUpperCase());
             novoTecnico.setCpf(novoCpf.validarCpf());
             novoTecnico.setCargo("Tecnico");           
             //Informacoes do endereco do tecnico
-            novoEndereco.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
-            novoTecnico.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
+            //novoEndereco.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
+            //novoTecnico.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
             //Informacoes de acesso do tecnico ao sistema
-            novoTecnico.setUsuario(JOptionPane.showInputDialog("USUARIO: "));            
-            novoTecnico.setSenha(novaSenha.validarSenha(listaFuncionario));
+              
+            novoTecnico.setUsuario(novaSenha.validarUsuario(listaFuncionario));
+            novoTecnico.setSenha(JOptionPane.showInputDialog("SENHA: ")); 
             listaFuncionario.add(novoTecnico);
         }
         else{
@@ -34,15 +35,15 @@ public class Adm extends Funcionario{
             Adm novoAdm = new Adm();
             novoAdm.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoAdm.setNome(JOptionPane.showInputDialog("CADASTRAR ADMINISTRADOR!\nNOME: ").trim().toUpperCase());
+            //novoAdm.setNome(JOptionPane.showInputDialog("CADASTRAR ADMINISTRADOR!\nNOME: ").trim().toUpperCase());
             novoAdm.setCpf(novoCpf.validarCpf());
             novoAdm.setCargo("Administrador");           
             //Informacoes do endereco do tecnico
-            novoAdm.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
-            novoAdm.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
+            //novoAdm.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
+            //novoAdm.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
             //Informacoes de acesso do tecnico ao sistema
-            novoAdm.setUsuario(JOptionPane.showInputDialog("USUARIO: "));
-            novoAdm.setSenha(novaSenha.validarSenha(listaFuncionario));
+            novoAdm.setUsuario(novaSenha.validarUsuario(listaFuncionario));
+            novoAdm.setSenha(JOptionPane.showInputDialog("SENHA: "));
             listaFuncionario.add(novoAdm);
         }
     }

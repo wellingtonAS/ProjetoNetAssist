@@ -32,7 +32,7 @@ public class NetAssist {
         adm.cadastrarFuncionario(listaFuncionarios, "2");
         
         do{
-        	funcionario.setUsuario(JOptionPane.showInputDialog("EFETUAR LOGIN:\nUSUARIO: "));            
+        	funcionario.setUsuario(JOptionPane.showInputDialog("INSIRA OS DADOS DE AUTENTICACAO PARA ENTRAR NO SISTEMA:\nUSUARIO: "));            
             funcionario.setSenha(JOptionPane.showInputDialog("SENHA: "));
             ver = funcionario.efetuarLogin(funcionario, listaFuncionarios);
         	if(ver == 2){
@@ -53,7 +53,7 @@ public class NetAssist {
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){
         					adm.setCpf(cpf.validarCpf());
             				index = cpf.verificarCpfIndex(listaFuncionarios, adm.getCpf());
-            				if(index != 0){
+            				if(index != -1){
                 				id = opcao.validarOpcaoAlteracao();
                 				adm.alterarFuncionario(listaFuncionarios, index,id); 
                 				JOptionPane.showMessageDialog(null, "Funcionario Alterado com Sucesso!");
@@ -70,12 +70,12 @@ public class NetAssist {
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){
         					adm.setCpf(cpf.validarCpf());
             				index = cpf.verificarCpfIndex(listaFuncionarios, adm.getCpf());
-            				if(index != 0){
+            				if(index != -1 && index != 0){
             					adm.deletarFuncionario(listaFuncionarios, index);
                 				JOptionPane.showMessageDialog(null, "Funcionario Deletado com Sucesso!");
             				}
             				else{
-            					JOptionPane.showMessageDialog(null, "Funcionario Inexistente!");
+            					JOptionPane.showMessageDialog(null, "Funcionario Inexistente ou Nao Pode ser Deletado!");
             				}
         				}
         				else{
@@ -98,7 +98,7 @@ public class NetAssist {
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					tecnico.setCpf(cpf.validarCpf());
             				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-            				if(index != 0){
+            				if(index != -1){
                 				id = contrato.validarOpcaoStatus();
                 				tecnico.alterarStatusCliente(listaClientes, index, id); 
                 				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
@@ -114,10 +114,8 @@ public class NetAssist {
         			else if(id.equals("7")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					tecnico.setCpf(cpf.validarCpf());
-            				//id = opcao.validarTipoFuncionario();
             				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-            				//System.out.println(index);
-            				if(index != 0){
+            				if(index != -1){
             					tecnico.deletarCliente(listaClientes, index);
                 				JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
             				}
@@ -126,13 +124,12 @@ public class NetAssist {
             				}
         				}
         				else{
-        					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Funcionario!");
+        					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Clientes!");
         				}
         			}
         			else if(id.equals("8")){
         				funcionario.listarCliente(listaClientes);
         			}
-        			
         		}while(!(id.equals("9")) && !(id.equals("0")));
         		if(id.equals("0")){
         			ver = 1;
