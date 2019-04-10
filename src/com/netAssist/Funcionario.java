@@ -70,14 +70,16 @@ public class Funcionario extends Pessoa{
       
     public void listarFuncionario(ArrayList<Funcionario> listaFuncionario){
         for(i=0; i<listaFuncionario.size(); i++){
-        		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n" + listaFuncionario.get(i).getNome() + " -> " + listaFuncionario.get(i).getCpf() + " -> " + listaFuncionario.get(i).getCargo());
+        		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n\nNOME: " + listaFuncionario.get(i).getNome() + "\n"
+        				+ "CPF: " + listaFuncionario.get(i).getCpf() + "\nCIDADE: " + listaFuncionario.get(i).getCidade() + "\n"
+        						+ "ESTADO: " + listaFuncionario.get(i).getEstado() + "\nCARGO: " + listaFuncionario.get(i).getCargo());
             }
     }
   //Metodo para listar todos os Clientes do ArrayList
     public void listarCliente(ArrayList<Cliente> listaCliente){
     	if(listaCliente.size() >= 1 && listaCliente.isEmpty() != true) {  
     		for(i=0; i<listaCliente.size(); i++){
-            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\nNOME: " + listaCliente.get(i).getNome() + "\n"
+            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n\nNOME: " + listaCliente.get(i).getNome() + "\n"
             			+ "CPF: " + listaCliente.get(i).getCpf() + "\nCIDADE: " + listaCliente.get(i).getCidade() + "\n"
             					+ "ESTADO: " + listaCliente.get(i).getEstado() + "\nSTATUS DO CONTRATO: " + listaCliente.get(i).getStatusContrato() + "\n"
             					+ "VELOCIDADE DO PLANO: " + listaCliente.get(i).getVelocidade() + "M" + "\nVALOR DO PLANO: R$" + listaCliente.get(i).getValorMensal() + "\n"

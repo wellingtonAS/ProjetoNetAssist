@@ -6,7 +6,7 @@ public class Menu {
     public String option;
     public String exibirMenu(){
         do{
-            option = JOptionPane.showInputDialog("BEM VINDO A NET ASSIST!\nQue operacao voce deseja fazer?\n"
+            option = JOptionPane.showInputDialog("BEM VINDO A NET ASSIST!\nQue operacao voce deseja fazer?\n\n"
                 + "1 - Cadastro de Funcionario\n2 - Alterar Usuario de Acesso\n3 - Deletar Funcionario\n4 - Listar Funcionarios\n"
                 + "5 - Cadastrar Clientes\n6 - Mudar Status do Cliente\n7 - Deletar Cliente\n8 - Listar Clientes\n9 - Sair do Sistema e Realizar Novo Login\nDigite a qualquer momento 0 para sair!");
             
@@ -43,7 +43,7 @@ public class Menu {
     
     public String validarOpcaoAlteracao(){
         do{
-            option = JOptionPane.showInputDialog("ALTERACAO DE DADOS CADASTRAIS:!\nQual Dado Voce Deseja Alterar?\n"
+            option = JOptionPane.showInputDialog("ALTERACAO DE DADOS CADASTRAIS:!\n\nQual Dado Voce Deseja Alterar?\n"
                 + "1 - USUARIO\n2 - SENHA");
             
             option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String

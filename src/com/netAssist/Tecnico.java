@@ -24,9 +24,11 @@ public class Tecnico extends Funcionario{
         novoCliente.setContrato(novoContrato);
         novoCliente.setLogin(novoLogin);
         String status;
-        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\nNOME: ").trim().toUpperCase()); 
-        novoCliente.setCpf(novoCpf.validarCpf());       
-        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\nVELOCIDADE: "));
+        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\n\nNOME: ").trim().toUpperCase()); 
+        novoCliente.setCpf(novoCpf.validarCpf()); 
+        novoCliente.setCidade(JOptionPane.showInputDialog("CIDADE: "));
+        novoCliente.setEstado(JOptionPane.showInputDialog("ESTADO: "));
+        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\n\nVELOCIDADE: "));
         novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
         status = novoContrato.validarOpcaoStatus();
         if(status.equals("1")){

@@ -18,7 +18,7 @@ public class Adm extends Funcionario{
             Tecnico novoTecnico = new Tecnico();
             novoTecnico.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoTecnico.setNome(JOptionPane.showInputDialog("CADASTRAR TECNICO!\nNOME: ").trim().toUpperCase());
+            novoTecnico.setNome(JOptionPane.showInputDialog("CADASTRAR TECNICO!\n\nNOME: ").trim().toUpperCase());
             novoTecnico.setCpf(novoCpf.validarCpf());
             novoTecnico.setCargo("Tecnico");           
             //Informacoes do endereco do tecnico
@@ -35,7 +35,7 @@ public class Adm extends Funcionario{
             Adm novoAdm = new Adm();
             novoAdm.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoAdm.setNome(JOptionPane.showInputDialog("CADASTRAR ADMINISTRADOR!\nNOME: ").trim().toUpperCase());
+            novoAdm.setNome(JOptionPane.showInputDialog("CADASTRAR ADMINISTRADOR!\n\nNOME: ").trim().toUpperCase());
             novoAdm.setCpf(novoCpf.validarCpf());
             novoAdm.setCargo("Administrador");           
             //Informacoes do endereco do tecnico

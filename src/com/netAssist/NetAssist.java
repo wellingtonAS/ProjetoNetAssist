@@ -32,7 +32,7 @@ public class NetAssist {
         adm.cadastrarFuncionario(listaFuncionarios, "2");
         
         do{
-        	funcionario.setUsuario(JOptionPane.showInputDialog("INSIRA OS DADOS DE AUTENTICACAO PARA ENTRAR NO SISTEMA:\nUSUARIO: "));            
+        	funcionario.setUsuario(JOptionPane.showInputDialog("INSIRA OS DADOS DE AUTENTICACAO PARA ENTRAR NO SISTEMA:\n\nUSUARIO: "));            
             funcionario.setSenha(JOptionPane.showInputDialog("SENHA: "));
             ver = funcionario.efetuarLogin(funcionario, listaFuncionarios);
         	if(ver == 2){

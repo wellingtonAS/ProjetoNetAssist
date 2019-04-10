@@ -40,7 +40,7 @@ public class Contrato {
     
     public String validarOpcaoStatus(){
         do{
-            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n1 - Ativo\n2 - Bloqueado\n"
+            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n\n1 - Ativo\n2 - Bloqueado\n"
             		+ "DIGITE O VALOR CORRESPONDENTE: ");
             
             option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String

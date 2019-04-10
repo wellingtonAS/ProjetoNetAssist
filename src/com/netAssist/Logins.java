@@ -53,7 +53,7 @@ public class Logins {
     
     public String validarOpcaoAutenticacao(){
         do{
-            option = JOptionPane.showInputDialog("TIPO DE AUTENTICACAO\n1 - PPPoE\n2 - Hotspot\nDIGITE O VALOR CORRESPONDENTE: ");
+            option = JOptionPane.showInputDialog("TIPO DE AUTENTICACAO\n\n1 - PPPoE\n2 - Hotspot\nDIGITE O VALOR CORRESPONDENTE: ");
             
             option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
             
