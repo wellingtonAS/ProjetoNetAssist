@@ -96,16 +96,21 @@ public class NetAssist {
         			}
         			else if(id.equals("6")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
-        					tecnico.setCpf(cpf.validarCpf());
-            				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-            				if(index != -1){
-                				id = contrato.validarOpcaoStatus();
-                				tecnico.alterarStatusCliente(listaClientes, index, id); 
-                				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
-            				}
-            				else{
-            					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
-            				}
+        					if(listaClientes.isEmpty() != true){
+        						tecnico.setCpf(cpf.validarCpf());
+                				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
+                				if(index != -1){
+                    				id = contrato.validarOpcaoStatus();
+                    				tecnico.alterarStatusCliente(listaClientes, index, id); 
+                    				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
+                				}
+                				else{
+                					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
+                				}
+        					}
+        					else{
+        						JOptionPane.showMessageDialog(null, "Não Existe Cliente Cadastrado!");
+        					}
         				}
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Alterar Dados deste Cliente!");
@@ -113,15 +118,20 @@ public class NetAssist {
         			}
         			else if(id.equals("7")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
-        					tecnico.setCpf(cpf.validarCpf());
-            				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-            				if(index != -1){
-            					tecnico.deletarCliente(listaClientes, index);
-                				JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
-            				}
-            				else{
-            					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
-            				}
+        					if(listaClientes.isEmpty() != true){
+        						tecnico.setCpf(cpf.validarCpf());
+                				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
+                				if(index != -1){
+                					tecnico.deletarCliente(listaClientes, index);
+                    				JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
+                				}
+                				else{
+                					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
+                				}
+        					}
+        					else{
+        						JOptionPane.showMessageDialog(null, "Não Existe Cliente Cadastrado!");
+        					}
         				}
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Clientes!");
@@ -136,8 +146,7 @@ public class NetAssist {
         		}      		
         	}
         	else if(ver == 1){
-        		ver = 1;
-        		
+        		ver = 1;      		
         	}
         }while(ver != 1);
     } 
