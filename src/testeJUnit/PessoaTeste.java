@@ -34,7 +34,7 @@ public class PessoaTeste {
 		Adm admin = new Adm();
 		admin.setEnd(end);
 		admin.setCidade("ARAPIRACA");
-		assertEquals("ARAPIRACA", f.getCidade());
+		assertEquals("ARAPIRACA", admin.getCidade());
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class PessoaTeste {
 		Adm admin = new Adm();
 		admin.setEnd(end);
 		admin.setEstado("AL");
-		assertEquals("AL", f.getEstado());
+		assertEquals("AL", admin.getEstado());
 	}
 
 	@Test
