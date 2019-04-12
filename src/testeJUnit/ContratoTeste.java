@@ -5,55 +5,57 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ContratoTeste {
+import com.netAssist.Cliente;
+import com.netAssist.Contrato;
 
+public class ContratoTeste {
+	Contrato ct1 = new Contrato();
+	Cliente cl = new Cliente();
+	
 	@Before
 	public void setUp() throws Exception {
+		ct1.setVelocidade("10");
+		ct1.setValorMensal("60");
+		ct1.setStatusContrato("1");
 	}
 
 	@Test
 	public void testContrato() {
-		fail("Not yet implemented");
+		Contrato ct = new Contrato();
 	}
 
 	@Test
 	public void testContratoStringStringString() {
-		fail("Not yet implemented");
+		Contrato ct = new Contrato("10", "60", "1");
 	}
 
 	@Test
 	public void testGetVelocidade() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetVelocidade() {
-		fail("Not yet implemented");
+		assertEquals("10", ct1.getVelocidade());
 	}
 
 	@Test
 	public void testGetValorMensal() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetValorMensal() {
-		fail("Not yet implemented");
+		assertEquals("60", ct1.getValorMensal());
 	}
 
 	@Test
 	public void testGetStatusContrato() {
-		fail("Not yet implemented");
+		assertEquals("1", ct1.getStatusContrato());
 	}
 
-	@Test
-	public void testSetStatusContrato() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testValidarOpcaoStatus() {
-		fail("Not yet implemented");
+		Contrato ct1 = new Contrato();
+		Cliente cl = new Cliente();
+		cl.setContrato(ct1);
+		if(ct1.validarOpcaoStatus().equals("1")) {
+			assertEquals("1", ct1.validarOpcaoStatus());
+		}
+		else {
+			assertEquals("2", ct1.validarOpcaoStatus());
+		}
 	}
 
 }
