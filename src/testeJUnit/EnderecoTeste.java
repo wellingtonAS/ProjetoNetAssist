@@ -5,40 +5,34 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class EnderecoTeste {
+import com.netAssist.Endereco;
 
+public class EnderecoTeste {
+	Endereco end2 = new Endereco();
 	@Before
 	public void setUp() throws Exception {
+		end2.setCidade("MACEIÓ");
+		end2.setEstado("AL");
 	}
 
 	@Test
 	public void testEndereco() {
-		fail("Not yet implemented");
+		Endereco end2 = new Endereco();
 	}
 
 	@Test
 	public void testEnderecoStringString() {
-		fail("Not yet implemented");
+		Endereco end = new Endereco("Taquarana", "AL");
 	}
 
 	@Test
 	public void testGetCidade() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetCidade() {
-		fail("Not yet implemented");
+		assertEquals("MACEIÓ", end2.getCidade());
 	}
 
 	@Test
 	public void testGetEstado() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetEstado() {
-		fail("Not yet implemented");
+		assertEquals("AL", end2.getEstado());
 	}
 
 }
