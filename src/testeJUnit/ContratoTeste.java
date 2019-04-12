@@ -53,7 +53,7 @@ public class ContratoTeste {
 		if(ct1.validarOpcaoStatus().equals("1")) {
 			assertEquals("1", ct1.validarOpcaoStatus());
 		}
-		else {
+		else if(ct1.validarOpcaoStatus().equals("2")){
 			assertEquals("2", ct1.validarOpcaoStatus());
 		}
 	}
