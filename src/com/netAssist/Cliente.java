@@ -11,10 +11,6 @@ public class Cliente extends Pessoa{
         this.contrato = contrato;
     }
 
-    public Cliente(Contrato contrato) {
-        this.contrato = contrato;
-    }
-
     public Logins getLogin() {
         return login;
     }
