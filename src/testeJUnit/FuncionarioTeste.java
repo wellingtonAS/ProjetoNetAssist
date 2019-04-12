@@ -11,36 +11,32 @@ import com.netAssist.Funcionario;
 
 public class FuncionarioTeste {
 	ArrayList<Funcionario> listaF = new ArrayList();
+	Funcionario fAux = new Funcionario();
 	Funcionario f1 = new Funcionario();
 	Funcionario f2 = new Funcionario();
-	
 	@Before
 	public void setUp() throws Exception {
+		fAux.setUsuario("adm");
+		fAux.setSenha("adm");
+		listaF.add(fAux);
+		
 		f1.setUsuario("adm");
 		f1.setSenha("adm");
-		listaF.add(f1);
-		f2.setUsuario("adm");
-		f2.setSenha("adm");
+		f2.setUsuario("admin");
 	}
 
 	@Test
-	public void testEfetuarLogin() {
-		assertEquals(2, f1.efetuarLogin(f2, listaF)); //Caso em que Usuario e Senha estão corretos
-		f2.setUsuario("adm");
-		f2.setSenha("admin");
-		assertEquals(0, f2.efetuarLogin(f2, listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que se deseja tentar novamente
+	public void testEfetuarLoginAutenticando() {
+		assertEquals(2, fAux.efetuarLogin(f1, listaF)); //Caso em que Usuario e Senha estão corretos	
+	}
+	@Test
+	public void testEfetuarLoginErroNaoContinuar() {
+		assertEquals(0, f2.efetuarLogin(f2, listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que se deseja tentar novamente		
+	}
+	@Test
+	public void testEfetuarLoginErroContinuar() {
 		assertEquals(1, f2.efetuarLogin(f2, listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que NAO se deseja tentar novamente
 		
-	}
-
-	@Test
-	public void testListarFuncionario() {
-		//assertArrayEquals(ArrayList<Funcionario> lista, f2.listarFuncionario(listaF));
-	}
-
-	@Test
-	public void testListarCliente() {
-		//fail("Not yet implemented");
 	}
 
 }
