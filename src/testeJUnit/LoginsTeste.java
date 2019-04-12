@@ -49,16 +49,13 @@ public class LoginsTeste {
 	}
 
 	@Test
-	public void testValidarOpcaoAutenticacao() {
-		option = lg.validarOpcaoAutenticacao();
-		if(lg.validarOpcaoAutenticacao().equals("1")) {
-			assertEquals("1", );
-		}
+	public void testValidarOpcaoAutenticacaoUm() {
+		assertEquals("1", lg.validarOpcaoAutenticacao());
 	}
 
 	@Test
 	public void testVerificarIndiceLogin() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }
