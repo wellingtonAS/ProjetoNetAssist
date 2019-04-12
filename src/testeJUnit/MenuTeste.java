@@ -5,25 +5,27 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MenuTeste {
+import com.netAssist.Menu;
 
+public class MenuTeste {
+	Menu menu = new Menu();
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
 	public void testExibirMenu() {
-		fail("Not yet implemented");
+		assertEquals("1", menu.exibirMenu());
 	}
 
 	@Test
 	public void testValidarTipoFuncionario() {
-		fail("Not yet implemented");
+		assertEquals("1", menu.validarTipoFuncionario());
 	}
 
 	@Test
 	public void testValidarOpcaoAlteracao() {
-		fail("Not yet implemented");
+		assertEquals("1", menu.validarOpcaoAlteracao());
 	}
 
 }
