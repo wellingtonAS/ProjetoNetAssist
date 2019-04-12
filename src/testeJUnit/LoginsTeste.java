@@ -2,12 +2,19 @@ package testeJUnit;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
+import com.netAssist.Adm;
+import com.netAssist.Funcionario;
 import com.netAssist.Logins;
 
 public class LoginsTeste {
+	ArrayList<Funcionario> func = new ArrayList();
+	Funcionario f = new Funcionario();
+	Adm admin = new Adm();
 	Logins lg = new Logins();
 	String option;
 	@Before
@@ -16,6 +23,12 @@ public class LoginsTeste {
 		lg.setLoginAcesso("321");
 		lg.setSenhaAcesso("321");
 		lg.setTipoConexao("1");
+		admin.setSenha("123");
+		admin.setUsuario("123");
+		func.add(admin);
+		f.setUsuario("123");
+		f.setSenha("123");
+		
 	}
 
 	@Test
@@ -55,7 +68,7 @@ public class LoginsTeste {
 
 	@Test
 	public void testVerificarIndiceLogin() {
-		//fail("Not yet implemented");
+		assertEquals(0, lg.verificarIndiceLogin(f, func));
 	}
 
 }
