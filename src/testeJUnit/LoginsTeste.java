@@ -5,65 +5,55 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class LoginsTeste {
+import com.netAssist.Logins;
 
+public class LoginsTeste {
+	Logins lg = new Logins();
+	String option;
 	@Before
 	public void setUp() throws Exception {
+		lg.setAutenticacao("1");
+		lg.setLoginAcesso("321");
+		lg.setSenhaAcesso("321");
+		lg.setTipoConexao("1");
 	}
 
 	@Test
 	public void testLogins() {
-		fail("Not yet implemented");
+		Logins lg = new Logins();
 	}
 
 	@Test
 	public void testLoginsStringStringStringString() {
-		fail("Not yet implemented");
+		Logins lg1 = new Logins("1", "1", "321", "321");
 	}
 
 	@Test
 	public void testGetAutenticacao() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetAutenticacao() {
-		fail("Not yet implemented");
+		assertEquals("1", lg.getAutenticacao());
 	}
 
 	@Test
 	public void testGetTipoConexao() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetTipoConexao() {
-		fail("Not yet implemented");
+		assertEquals("1", lg.getTipoConexao());
 	}
 
 	@Test
 	public void testGetLoginAcesso() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetLoginAcesso() {
-		fail("Not yet implemented");
+		assertEquals("321", lg.getLoginAcesso());
 	}
 
 	@Test
 	public void testGetSenhaAcesso() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetSenhaAcesso() {
-		fail("Not yet implemented");
+		assertEquals("321", lg.getSenhaAcesso());
 	}
 
 	@Test
 	public void testValidarOpcaoAutenticacao() {
-		fail("Not yet implemented");
+		option = lg.validarOpcaoAutenticacao();
+		if(lg.validarOpcaoAutenticacao().equals("1")) {
+			assertEquals("1", );
+		}
 	}
 
 	@Test
