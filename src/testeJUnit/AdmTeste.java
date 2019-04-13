@@ -28,17 +28,17 @@ public class AdmTeste {
 
 	@Test
 	public void testCadastrarFuncionario() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 	@Test
 	public void testAlterarFuncionario() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 	@Test
 	public void testDeletarFuncionario() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 }

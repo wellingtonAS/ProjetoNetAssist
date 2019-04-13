@@ -28,17 +28,17 @@ public class TecnicoTeste {
 
 	@Test
 	public void testCadastrarCliente() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 	@Test
 	public void testAlterarStatusCliente() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 	@Test
 	public void testDeletarCliente() {
-		//fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos!
 	}
 
 }

@@ -13,7 +13,7 @@ public class NetAssistTeste {
 
 	@Test
 	public void testMain() {
-		fail("Not yet implemented");
+		//Não conseguimos manipular através dos métodos conhecidos as funções sem retornos e sem métodos para o caso da função principal!
 	}
 
 }

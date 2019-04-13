@@ -28,7 +28,7 @@ public class CpfTeste {
 
 	@Test
 	public void testValidarCpf() {
-		assertEquals("32165498709", cpf.validarCpf());
+		assertEquals("32165498709", cpf.validarCpf(), "O Teste deve conter o CPF: 32165498709");
 	}
 
 	@Test

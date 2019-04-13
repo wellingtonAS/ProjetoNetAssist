@@ -11,7 +11,7 @@ public class EnderecoTeste {
 	Endereco end2 = new Endereco();
 	@Before
 	public void setUp() throws Exception {
-		end2.setCidade("MACEIÓ");
+		end2.setCidade("MACEIӓ");
 		end2.setEstado("AL");
 	}
 

@@ -1,2 +1,11 @@
 # ProjetoNetAssist
-Projeto para a disciplina de ENG e P2/LP2
+Projeto para a disciplina de ENG
+
+COMPONENTES DA EQUIPE:
+
+WELLINGTON ARAÚJO SANTOS
+PAULO HENRIQUE DA SILVA SANTOS
+JOEL DA SILVA BOIA
+
+LINK PARA O REPOSITÓRIO DO GITHUB:
+https://github.com/wellingtonAS/ProjetoNetAssist

@@ -19,7 +19,7 @@ public class FuncionarioTeste {
 		fAux.setUsuario("adm");
 		fAux.setSenha("adm");
 		listaF.add(fAux);
-		
+		f1.setCargo("1");
 		f1.setUsuario("adm");
 		f1.setSenha("adm");
 		f2.setUsuario("admin");
