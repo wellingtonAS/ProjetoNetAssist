@@ -50,12 +50,8 @@ public class ContratoTeste {
 		Contrato ct1 = new Contrato();
 		Cliente cl = new Cliente();
 		cl.setContrato(ct1);
-		if(ct1.validarOpcao().equals("1")) {
-			assertEquals("1", ct1.validarOpcao());
-		}
-		else if(ct1.validarOpcao().equals("2")){
-			assertEquals("2", ct1.validarOpcao());
-		}
+		assertEquals("1", ct1.validarOpcao());
+		assertEquals("2", ct1.validarOpcao());
 	}
 
 }
