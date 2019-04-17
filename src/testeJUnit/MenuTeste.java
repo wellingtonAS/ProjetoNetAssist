@@ -20,7 +20,7 @@ public class MenuTeste {
 
 	@Test
 	public void testValidarTipoFuncionario() {
-		assertEquals("1", menu.validarTipoFuncionario());
+		assertEquals("1", menu.validarOpcao());
 	}
 
 	@Test

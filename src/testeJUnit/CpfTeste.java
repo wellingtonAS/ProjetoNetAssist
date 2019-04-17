@@ -20,15 +20,15 @@ public class CpfTeste {
 
 	@Before
 	public void setUp() throws Exception {
-		f1.setCpf("32165498709");
+		f1.setCpf("12345678909");
 		listaF.add(f1);
-		c.setCpf("32165498709");
+		c.setCpf("12345678909");
 		listaC.add(c);
 	}
 
 	@Test
 	public void testValidarCpf() {
-		assertEquals("32165498709", cpf.validarCpf(), "O Teste deve conter o CPF: 32165498709");
+		assertEquals("12345678909", cpf.validarCpf());
 	}
 
 	@Test
@@ -39,6 +39,10 @@ public class CpfTeste {
 	@Test
 	public void testVerificarCpfIndexCliente() {
 		assertEquals(0, cpf.verificarCpfIndexCliente(listaC, c.getCpf()));
+	}
+	@Test
+	public void testverificarExisteCpf(){
+		assertEquals(0, cpf.verificarExisteCpf(listaF, "12345678909"));
 	}
 
 }

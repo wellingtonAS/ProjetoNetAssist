@@ -9,8 +9,6 @@ public class Funcionario extends Pessoa{
     private String usuario;
     private String senha;
     private String cargo;
-    public int at = -1;
-    public int atAux;
     public int i;
     
     public Funcionario(){
@@ -47,9 +45,11 @@ public class Funcionario extends Pessoa{
     } 
     
     //Metodo para verificar a autenticidade dos funcionarios listados! 
-    public int efetuarLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
+    public int efetuarLogin(String usuarioT, String senhaT, ArrayList<Funcionario> listaFuncionario){
+    	int at = -1;
+        int atAux = -1;
         for(i=0; i<listaFuncionario.size(); i++){
-            if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
+            if((usuarioT.equals(listaFuncionario.get(i).getUsuario()))&&(senhaT.equals(listaFuncionario.get(i).getSenha()))){
                 at = 2;
                 break;
             }
@@ -57,15 +57,13 @@ public class Funcionario extends Pessoa{
         if(at == -1){
         	atAux = JOptionPane.showConfirmDialog(null, "Erro de Autenticacao, deseja tentar novamente?");
             if(atAux == 0){
-            	return 0;
+            	at = 0;
             }
             else{
-            	return 1;
+            	at = 1;
             }
         }
-        else{        
-            return 2;
-        }
+        return at;
     }
       
     public void listarFuncionario(ArrayList<Funcionario> listaFuncionario){

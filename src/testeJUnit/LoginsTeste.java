@@ -63,12 +63,12 @@ public class LoginsTeste {
 
 	@Test
 	public void testValidarOpcaoAutenticacaoUm() {
-		assertEquals("1", lg.validarOpcaoAutenticacao());
+		assertEquals("1", lg.validarOpcao());
 	}
 
 	@Test
 	public void testVerificarIndiceLogin() {
-		assertEquals(0, lg.verificarIndiceLogin(f, func));
+		assertEquals(0, lg.verificarIndiceLogin(f.getUsuario(), f.getSenha(), func));
 	}
 
 }

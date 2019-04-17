@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class Logins {
+public class Logins implements ValidacaoEntradas{
     private String autenticacao;
     private String tipoConexao;
     private String loginAcesso;
@@ -50,8 +50,8 @@ public class Logins {
     public void setSenhaAcesso(String senhaAcesso) {
         this.senhaAcesso = senhaAcesso;
     } 
-    
-    public String validarOpcaoAutenticacao(){
+    @Override
+    public String validarOpcao(){
         do{
             option = JOptionPane.showInputDialog("TIPO DE AUTENTICACAO\n\n1 - PPPoE\n2 - Hotspot\nDIGITE O VALOR CORRESPONDENTE: ");
             
@@ -64,17 +64,15 @@ public class Logins {
         return option;
     }
     
-    public int verificarIndiceLogin(Funcionario funcionario, ArrayList<Funcionario> listaFuncionario){
+    public int verificarIndiceLogin(String usuarioT, String senhaT, ArrayList<Funcionario> listaFuncionario){
         int at = 0;
         for(int i=0; i<listaFuncionario.size(); i++){
-            if((funcionario.getUsuario().equals(listaFuncionario.get(i).getUsuario()))&&(funcionario.getSenha().equals(listaFuncionario.get(i).getSenha()))){
+            if((usuarioT.equals(listaFuncionario.get(i).getUsuario()))&&(senhaT.equals(listaFuncionario.get(i).getSenha()))){
                 at = i;
                 break;
             }
         }
         return at;
     }
-    
-    
     
 }

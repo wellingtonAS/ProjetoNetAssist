@@ -27,15 +27,15 @@ public class FuncionarioTeste {
 
 	@Test
 	public void testEfetuarLoginAutenticando() {
-		assertEquals(2, fAux.efetuarLogin(f1, listaF)); //Caso em que Usuario e Senha estão corretos	
+		assertEquals(2, fAux.efetuarLogin(fAux.getUsuario(), fAux.getSenha(), listaF)); //Caso em que Usuario e Senha estão corretos	
 	}
 	@Test
 	public void testEfetuarLoginErroNaoContinuar() {
-		assertEquals(0, f2.efetuarLogin(f2, listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que se deseja tentar novamente		
+		assertEquals(0, f2.efetuarLogin(f2.getUsuario(), f2.getSenha(), listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que se deseja tentar novamente		
 	}
 	@Test
 	public void testEfetuarLoginErroContinuar() {
-		assertEquals(1, f2.efetuarLogin(f2, listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que NAO se deseja tentar novamente
+		assertEquals(1, f2.efetuarLogin(f2.getUsuario(), f2.getSenha(), listaF)); //Caso em que Usuario e/ou Senha estão errados, mas que NAO se deseja tentar novamente
 		
 	}
 

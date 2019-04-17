@@ -2,7 +2,7 @@
 package com.netAssist;
 
 import javax.swing.JOptionPane;
-public class Menu {
+public class Menu implements ValidacaoEntradas{
     public String option;
     public String exibirMenu(){
         do{
@@ -17,8 +17,9 @@ public class Menu {
             
         }while(!(option.equals("0")) && !(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")) && !(option.equals("4")) && !(option.equals("5")) && !(option.equals("6")) && !(option.equals("7")) && !(option.equals("8")) && !(option.equals("9")));
         return option;
-    }   
-    public String validarTipoFuncionario(){
+    } 
+    @Override
+    public String validarOpcao(){
     	do{
     		option = JOptionPane.showInputDialog("ACESSO AO SISTEMA!\n\nTipo de funcionario:\n"
             		+ "1 - Tecnico\n2 - Administrador\nDigite o valor correspondente ao funcionario a ser cadastrado: ");

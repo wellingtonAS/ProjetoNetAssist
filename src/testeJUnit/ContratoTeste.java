@@ -46,15 +46,15 @@ public class ContratoTeste {
 
 
 	@Test
-	public void testValidarOpcaoStatus() {
+	public void testValidarOpcao() {
 		Contrato ct1 = new Contrato();
 		Cliente cl = new Cliente();
 		cl.setContrato(ct1);
-		if(ct1.validarOpcaoStatus().equals("1")) {
-			assertEquals("1", ct1.validarOpcaoStatus());
+		if(ct1.validarOpcao().equals("1")) {
+			assertEquals("1", ct1.validarOpcao());
 		}
-		else if(ct1.validarOpcaoStatus().equals("2")){
-			assertEquals("2", ct1.validarOpcaoStatus());
+		else if(ct1.validarOpcao().equals("2")){
+			assertEquals("2", ct1.validarOpcao());
 		}
 	}
 

@@ -9,6 +9,7 @@ public class Cpf {
 	public String cpf;
 	public int tam;
 	public int test = 0;
+        
     public String validarCpf(){
     	do{
     		test = 0;
@@ -16,14 +17,15 @@ public class Cpf {
     		cpf = cpf.replaceAll(" ", "");
         	if(cpf.matches("[0-9]+") && cpf.length() == 11){
         		test = 1;
-        		
         	}
         	else{
         		JOptionPane.showMessageDialog(null, "Digite Um CPF Valido!");
         	}
     	}while(test == 0);
+    	
     	return cpf;
-    } 
+    }
+    
     public int verificarCpfIndex(ArrayList<Funcionario> listaFuncionario, String cpf){
     	int c = -1;
     	int i;
@@ -38,6 +40,20 @@ public class Cpf {
     	else{
     		c = 0;
     	}
+    	return c;
+    }
+    
+    public int verificarExisteCpf(ArrayList<Funcionario> listaFuncionario, String cpf){
+    	int c = -1;
+    	int i;
+    	if(listaFuncionario.size()>=1 && listaFuncionario.isEmpty() != true){
+			for(i=0; i<listaFuncionario.size(); i++){
+				if(listaFuncionario.get(i).getCpf().equals(cpf)){
+					c = 0;
+					break;
+				}
+			}
+		}
     	return c;
     }
     

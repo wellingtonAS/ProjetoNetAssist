@@ -30,14 +30,14 @@ public class Tecnico extends Funcionario{
         novoCliente.setEstado(JOptionPane.showInputDialog("ESTADO: "));
         novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\n\nVELOCIDADE: "));
         novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
-        status = novoContrato.validarOpcaoStatus();
+        status = novoContrato.validarOpcao();
         if(status.equals("1")){
         	novoCliente.setStatusContrato("Ativo");
         }
         else if(status.equals("2")){
         	novoCliente.setStatusContrato("Bloqueado");
         }
-        status = login.validarOpcaoAutenticacao();
+        status = login.validarOpcao();
         if(status.equals("1")){
         	novoCliente.setAutenticacao("PPPoE");
         }

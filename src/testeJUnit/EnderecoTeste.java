@@ -11,7 +11,7 @@ public class EnderecoTeste {
 	Endereco end2 = new Endereco();
 	@Before
 	public void setUp() throws Exception {
-		end2.setCidade("MACEIÓ“");
+		end2.setCidade("MACEIO“");
 		end2.setEstado("AL");
 	}
 
@@ -27,7 +27,7 @@ public class EnderecoTeste {
 
 	@Test
 	public void testGetCidade() {
-		assertEquals("MACEIÃ“", end2.getCidade());
+		assertEquals("MACEIO“", end2.getCidade());
 	}
 
 	@Test

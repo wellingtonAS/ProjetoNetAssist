@@ -2,7 +2,7 @@ package com.netAssist;
 
 import javax.swing.JOptionPane;
 
-public class Contrato {
+public class Contrato implements ValidacaoEntradas{
     private String velocidade;
     private String valorMensal;
     private String statusContrato;
@@ -37,8 +37,8 @@ public class Contrato {
     public void setStatusContrato(String statusContrato) {
         this.statusContrato = statusContrato;
     }
-    
-    public String validarOpcaoStatus(){
+    @Override
+    public String validarOpcao(){
         do{
             option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n\n1 - Ativo\n2 - Bloqueado\n"
             		+ "DIGITE O VALOR CORRESPONDENTE: ");

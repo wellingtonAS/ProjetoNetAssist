@@ -23,7 +23,10 @@ public class NetAssist {
         cliente.setEnd(endereco); //MODIFICADO
         cliente.setContrato(contrato); //MODIFICADO
         cliente.setLogin(logins); //MODIFICADO
-        String id = null;          
+        String id = null;  
+        String usuarioTeste = null;
+        String senhaTeste = null;
+        
         int ver = 0;
         int index;
         int indexLogin;
@@ -32,18 +35,18 @@ public class NetAssist {
         adm.cadastrarFuncionario(listaFuncionarios, "2");
         
         do{
-        	funcionario.setUsuario(JOptionPane.showInputDialog("INSIRA OS DADOS DE AUTENTICACAO PARA ENTRAR NO SISTEMA:\n\nUSUARIO: "));            
-            funcionario.setSenha(JOptionPane.showInputDialog("SENHA: "));
-            ver = funcionario.efetuarLogin(funcionario, listaFuncionarios);
+        	usuarioTeste = (JOptionPane.showInputDialog("INSIRA OS DADOS DE AUTENTICACAO PARA ENTRAR NO SISTEMA:\n\nUSUARIO: "));            
+            senhaTeste = (JOptionPane.showInputDialog("SENHA: "));
+            
+            ver = funcionario.efetuarLogin(usuarioTeste, senhaTeste, listaFuncionarios);
         	if(ver == 2){
-        		indexLogin = logins.verificarIndiceLogin(funcionario, listaFuncionarios);
+        		indexLogin = logins.verificarIndiceLogin(usuarioTeste, senhaTeste, listaFuncionarios);
         		do{
         			id = opcao.exibirMenu();
         			if(id.equals("1")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){
-        					id = opcao.validarTipoFuncionario();
+        					id = opcao.validarOpcao();
             				adm.cadastrarFuncionario(listaFuncionarios, id);
-            				JOptionPane.showMessageDialog(null, "Funcionario Cadastrado com Sucesso!");
         				}
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Cadastrar Funcionario!");
@@ -100,7 +103,7 @@ public class NetAssist {
         						tecnico.setCpf(cpf.validarCpf());
                 				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
                 				if(index != -1){
-                    				id = contrato.validarOpcaoStatus();
+                    				id = contrato.validarOpcao();
                     				tecnico.alterarStatusCliente(listaClientes, index, id); 
                     				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
                 				}
