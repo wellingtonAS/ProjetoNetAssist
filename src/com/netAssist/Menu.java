@@ -4,53 +4,31 @@ package com.netAssist;
 import javax.swing.JOptionPane;
 public class Menu implements ValidacaoEntradas{
     public String option;
-    public String exibirMenu(){
-        do{
-            option = JOptionPane.showInputDialog("BEM VINDO A NET ASSIST!\nQue operacao voce deseja fazer?\n\n"
-                + "1 - Cadastro de Funcionario\n2 - Alterar Usuario de Acesso\n3 - Deletar Funcionario\n4 - Listar Funcionarios\n"
-                + "5 - Cadastrar Clientes\n6 - Mudar Status do Cliente\n7 - Deletar Cliente\n8 - Listar Clientes\n9 - Sair do Sistema e Realizar Novo Login\nDigite a qualquer momento 0 para sair!");
-            
-            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
-            if(!(option.equals("0")) && !(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")) && !(option.equals("4")) && !(option.equals("5")) && !(option.equals("6")) && !(option.equals("7")) && !(option.equals("8")) && !(option.equals("9"))){
-            	JOptionPane.showMessageDialog(null, "Por Favor, Digite Uma Opcao Valida!");
-            }
-            
-        }while(!(option.equals("0")) && !(option.equals("1")) && !(option.equals("2")) && !(option.equals("3")) && !(option.equals("4")) && !(option.equals("5")) && !(option.equals("6")) && !(option.equals("7")) && !(option.equals("8")) && !(option.equals("9")));
-        return option;
+    public int exibirMenu(String op){
+    	if((op.equals("0")) || (op.equals("1")) || (op.equals("2")) || (op.equals("3")) || (op.equals("4")) || (op.equals("5")) || (op.equals("6")) || (op.equals("7")) || (op.equals("8")) || (op.equals("9"))){
+        	return 1;
+        }
+    	else{
+    		return 0;
+    	}
     } 
     @Override
-    public String validarOpcao(){
-    	do{
-    		option = JOptionPane.showInputDialog("ACESSO AO SISTEMA!\n\nTipo de funcionario:\n"
-            		+ "1 - Tecnico\n2 - Administrador\nDigite o valor correspondente ao funcionario a ser cadastrado: ");
-    		if(option == null){
-    			if(JOptionPane.showConfirmDialog(null, "CANCELAR CADASTRO?") == 0){ //Verificar se o usuario deseja realmente sair
-    				option = null;
-    				break;
-    			}
-    			else{
-    				option = "-";
-    			}
-    		}
-    		else{
-    			option = option.replaceAll(" ", "");
-    		}
-    		if(!(option.equals("1")) && !(option.equals("2"))){
-    			JOptionPane.showMessageDialog(null, "Por Favor Digite Um Tipo de Funcionario Valido!");
-    		}
-    	}while(!(option.equals("1")) && !(option.equals("2")));
-    	return option;
+    public int validarOpcao(String op){
+		if((op.equals("1")) || (op.equals("2"))){
+			return 1;
+		}
+		else{
+			return 0;
+		}
     }
     
-    public String validarOpcaoAlteracao(){
-        do{
-            option = JOptionPane.showInputDialog("ALTERACAO DE DADOS CADASTRAIS:!\n\nQual Dado Voce Deseja Alterar?\n"
-                + "1 - USUARIO\n2 - SENHA");
-            
-            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
-            
-        }while(!(option.equals("1")) && !(option.equals("2")));
-        return option;
+    public int validarOpcaoAlteracao(String op){
+    	if((op.equals("1")) || (op.equals("2"))){
+			return 1;
+		}
+		else{
+			return 0;
+		}
     } 
     
 }

@@ -54,24 +54,16 @@ public class Funcionario extends Pessoa{
                 break;
             }
         }
-        if(at == -1){
-        	atAux = JOptionPane.showConfirmDialog(null, "Erro de Autenticacao, deseja tentar novamente?");
-            if(atAux == 0){
-            	at = 0;
-            }
-            else{
-            	at = 1;
-            }
-        }
         return at;
     }
       
-    public void listarFuncionario(ArrayList<Funcionario> listaFuncionario){
+    public int listarFuncionario(ArrayList<Funcionario> listaFuncionario){
         for(i=0; i<listaFuncionario.size(); i++){
         		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n\nNOME: " + listaFuncionario.get(i).getNome() + "\n"
         				+ "CPF: " + listaFuncionario.get(i).getCpf() + "\nCIDADE: " + listaFuncionario.get(i).getCidade() + "\n"
         						+ "ESTADO: " + listaFuncionario.get(i).getEstado() + "\nCARGO: " + listaFuncionario.get(i).getCargo());
-            }
+        }
+        return 1;
     }
   //Metodo para listar todos os Clientes do ArrayList
     public void listarCliente(ArrayList<Cliente> listaCliente){

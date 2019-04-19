@@ -12,7 +12,7 @@ public class Tecnico extends Funcionario{
     }
      
     //Metodo para realizar insercao de Cliente em em ArrayList
-    public void cadastrarCliente(ArrayList<Cliente> listaCliente){
+    public int cadastrarCliente(ArrayList<Cliente> listaCliente, String nome, String cpf, String cidade, String estado, String user, String senhaAcesso, String velocidade, String valor, String statusContrato, String tipoConexao){
     	Logins login = new Logins();
         Cliente novoCliente = new Cliente();
         Contrato novoContrato = new Contrato();
@@ -22,33 +22,50 @@ public class Tecnico extends Funcionario{
         Endereco novoEndereco = new Endereco();
         novoCliente.setEnd(novoEndereco);
         novoCliente.setContrato(novoContrato);
-        novoCliente.setLogin(novoLogin);
-        String status;
-        novoCliente.setNome(JOptionPane.showInputDialog("CADASTRAR CLIENTE!\n\nNOME: ").trim().toUpperCase()); 
-        novoCliente.setCpf(novoCpf.validarCpf()); 
-        novoCliente.setCidade(JOptionPane.showInputDialog("CIDADE: "));
-        novoCliente.setEstado(JOptionPane.showInputDialog("ESTADO: "));
-        novoCliente.setVelocidade(JOptionPane.showInputDialog("INFORMACOES DO PLANO!\n\nVELOCIDADE: "));
-        novoCliente.setValorMensal(JOptionPane.showInputDialog("VALOR DO PLANO: "));
-        status = novoContrato.validarOpcao();
-        if(status.equals("1")){
+        novoCliente.setLogin(novoLogin);      
+        novoCliente.setNome(nome); 
+        novoCliente.setCpf(cpf); 
+        novoCliente.setCidade(cidade);
+        novoCliente.setEstado(estado);
+        novoCliente.setVelocidade(velocidade);
+        novoCliente.setValorMensal(valor);   
+        int ver;
+        if(statusContrato.equals("1")){
         	novoCliente.setStatusContrato("Ativo");
         }
-        else if(status.equals("2")){
+        else if(statusContrato.equals("2")){
         	novoCliente.setStatusContrato("Bloqueado");
-        }
-        status = login.validarOpcao();
-        if(status.equals("1")){
+        }    
+        if(tipoConexao.equals("1")){
         	novoCliente.setAutenticacao("PPPoE");
         }
-        else if(status.equals("2")){
+        else if(tipoConexao.equals("2")){
         	novoCliente.setAutenticacao("Hotspot");
         }
-        novoCliente.setLoginAcesso(novaSenha.validarUsuarioCliente(listaCliente));
-        novoCliente.setSenhaAcesso(JOptionPane.showInputDialog("SENHA DE AUTENTICACAO: "));
-        
+        novoCliente.setLoginAcesso(user);
+        novoCliente.setSenhaAcesso(senhaAcesso);       
         listaCliente.add(novoCliente);
+        
+        ver = novoCpf.verificarCpfIndexCliente(listaCliente, novoCliente.getCpf());
+        if(ver != -1){
+        	return 1;
+        }
+        else{
+        	return -1;
+        }     
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public void alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
 		if(id.equals("1")){
 			listaCliente.get(indice).setStatusContrato("Ativo");;

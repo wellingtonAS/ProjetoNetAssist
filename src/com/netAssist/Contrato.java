@@ -38,15 +38,13 @@ public class Contrato implements ValidacaoEntradas{
         this.statusContrato = statusContrato;
     }
     @Override
-    public String validarOpcao(){
-        do{
-            option = JOptionPane.showInputDialog("STATUS DO CONTRATO\n\n1 - Ativo\n2 - Bloqueado\n"
-            		+ "DIGITE O VALOR CORRESPONDENTE: ");
-            
-            option = option.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
-            
-        }while(!(option.equals("1")) && !(option.equals("2")));
-        return option;
+    public int validarOpcao(String op){      
+    	if((op.equals("1")) || (op.equals("2"))){
+			return 1;
+		}
+		else{
+			return 0;
+		}
     }
     
 }

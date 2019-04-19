@@ -12,65 +12,85 @@ public class Adm extends Funcionario{
     }
     Cpf novoCpf = new Cpf();
     Senha novaSenha = new Senha();
-    public void cadastrarFuncionario(ArrayList<Funcionario> listaFuncionario, String id){
-        if(id.equals("1")){
+    int ver = 0;
+    boolean contem;
+    //MÉTODO PARA REALIZAR CADASTRO DE FUNCIONARIO
+    public int cadastrarFuncionario(ArrayList<Funcionario> listaFuncionario, String id, String nome, String cpf, String cidade, String estado, String usuario, String senha){
+        //CADASTRAR COMO TÉCNICO
+    	if(id.equals("1")){
             Endereco novoEndereco = new Endereco();
             Tecnico novoTecnico = new Tecnico();
             novoTecnico.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoTecnico.setNome(JOptionPane.showInputDialog("CADASTRAR TECNICO!\n\nNOME: ").trim().toUpperCase());
-            novoTecnico.setCpf(novoCpf.validarCpf());
-            if((novoCpf.verificarExisteCpf(listaFuncionario, novoTecnico.getCpf())) != 0){
-            	novoTecnico.setCargo("Tecnico");           
-                //Informacoes do endereco do tecnico
-                novoEndereco.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
-                novoTecnico.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
-                //Informacoes de acesso do tecnico ao sistema
-                  
-                novoTecnico.setUsuario(novaSenha.validarUsuario(listaFuncionario));
-                novoTecnico.setSenha(JOptionPane.showInputDialog("SENHA: ")); 
-                listaFuncionario.add(novoTecnico);
-                JOptionPane.showMessageDialog(null, "Funcionario Cadastrado com Sucesso!");
+            novoTecnico.setNome(nome);
+            novoTecnico.setCpf(cpf);
+            novoTecnico.setCargo("Tecnico");           
+            //Informacoes do endereco do tecnico
+            novoEndereco.setCidade(cidade);
+            novoTecnico.setEstado(estado);
+            //Informacoes de acesso do tecnico ao sistema           
+            novoTecnico.setUsuario(usuario);
+            novoTecnico.setSenha(senha); 
+            listaFuncionario.add(novoTecnico);
+            ver = novoCpf.verificarExisteCpf(null, novoTecnico.getCpf());
+            if(ver == 0){
+            	return 1;
             }
             else{
-            	JOptionPane.showMessageDialog(null, "Existe Um Funcionario Que Possue Este CPF Cadastrado!");
-            }
+            	return -1;
+            }        
         }
+    	//CADASTRAR COMO ADMINISTRADOR
         else{
         	Endereco novoEndereco = new Endereco();
             Adm novoAdm = new Adm();
             novoAdm.setEnd(novoEndereco);
             //Informacoes pessoais do tecnico
-            novoAdm.setNome(JOptionPane.showInputDialog("CADASTRAR ADMINISTRADOR!\n\nNOME: ").trim().toUpperCase());
-            novoAdm.setCpf(novoCpf.validarCpf());
-            if((novoCpf.verificarExisteCpf(listaFuncionario, novoAdm.getCpf())) != 0){
-            	novoAdm.setCargo("Administrador");           
-                //Informacoes do endereco do tecnico
-                novoAdm.setCidade(JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase());
-                novoAdm.setEstado(JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase());
-                //Informacoes de acesso do tecnico ao sistema
-                novoAdm.setUsuario(novaSenha.validarUsuario(listaFuncionario));
-                novoAdm.setSenha(JOptionPane.showInputDialog("SENHA: "));
-                listaFuncionario.add(novoAdm);
-                JOptionPane.showMessageDialog(null, "Funcionario Cadastrado com Sucesso!");
+            novoAdm.setNome(nome);
+            novoAdm.setCpf(cpf);
+            novoAdm.setCargo("Administrador");           
+            //Informacoes do endereco do tecnico
+            novoEndereco.setCidade(cidade);
+            novoAdm.setEstado(estado);
+            //Informacoes de acesso do tecnico ao sistema         
+            novoAdm.setUsuario(usuario);
+            novoAdm.setSenha(senha); 
+            listaFuncionario.add(novoAdm);
+            ver = novoCpf.verificarExisteCpf(listaFuncionario, novoAdm.getCpf());
+            if(ver == 0){
+            	return 1;
             }
             else{
-            	JOptionPane.showMessageDialog(null, "Existe Um Funcionario Que Possue Este CPF Cadastrado!");
-            }
+            	return -1;
+            }             
         }
     }
     
-    public void alterarFuncionario(ArrayList<Funcionario> listaFuncionario, int indice, String id){
-			if(id.equals("1")){
-				listaFuncionario.get(indice).setUsuario(JOptionPane.showInputDialog("NOVO USUARIO: "));;
-			}
-			else{
-				listaFuncionario.get(indice).setSenha(JOptionPane.showInputDialog("NOVA SENHA: "));
-			}
+    public int alterarFuncionario(ArrayList<Funcionario> listaFuncionario, int indice, String id, String usuario, String senha){
+		if(id.equals("1")){
+			listaFuncionario.get(indice).setUsuario(usuario);;
+			ver = novoCpf.verificarExisteCpf(listaFuncionario, usuario);
+            if(ver == 0){
+            	return 1;
+            }
+            else{
+            	return -1;
+            } 
 		}
+		else{
+			listaFuncionario.get(indice).setSenha(senha);
+			return 1;
+		}
+	}
  
-    public void deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id){
+    public int deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id){
         listaFuncionario.remove(id);
+        if(listaFuncionario.get(id)== null){
+        	return 1;
+        }
+        else{
+        	return -1;
+        } 
     }
     
 }
