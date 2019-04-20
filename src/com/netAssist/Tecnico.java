@@ -66,16 +66,38 @@ public class Tecnico extends Funcionario{
     
     
     
-    public void alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
+    public int alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
+    	Contrato contratoTeste = new Contrato();
+    	int ver = 0;
 		if(id.equals("1")){
-			listaCliente.get(indice).setStatusContrato("Ativo");;
+			listaCliente.get(indice).setStatusContrato("Ativo");
+			ver = contratoTeste.validarStatus(listaCliente, indice, "Ativo");
+            if(ver == 0){
+            	return 1;
+            }
+            else{
+            	return -1;
+            } 
 		}
-		else if(id.equals("2")){
+		else{
 			listaCliente.get(indice).setStatusContrato("Bloqueado");
+			ver = contratoTeste.validarStatus(listaCliente, indice, "Bloqueado");
+            if(ver == 0){
+            	return 1;
+            }
+            else{
+            	return -1;
+            } 
 		}
 	}   
     //Metodo para deletar Cliente da lista
-    public void deletarCliente(ArrayList<Cliente> listaCliente, int id){
+    public int deletarCliente(ArrayList<Cliente> listaCliente, int id){
         listaCliente.remove(id);
+        if(listaCliente.get(id)== null){
+        	return 1;
+        }
+        else{
+        	return -1;
+        }
     }
 }

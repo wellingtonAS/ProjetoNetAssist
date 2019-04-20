@@ -66,7 +66,7 @@ public class Funcionario extends Pessoa{
         return 1;
     }
   //Metodo para listar todos os Clientes do ArrayList
-    public void listarCliente(ArrayList<Cliente> listaCliente){
+    public int listarCliente(ArrayList<Cliente> listaCliente){
     	if(listaCliente.size() >= 1 && listaCliente.isEmpty() != true) {  
     		for(i=0; i<listaCliente.size(); i++){
             	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n\nNOME: " + listaCliente.get(i).getNome() + "\n"
@@ -76,9 +76,11 @@ public class Funcionario extends Pessoa{
             							+ "TIPO DE AUTENTICACAO: " + listaCliente.get(i).getAutenticacao() + "\n"
             							+ "LOGIN DE ACESSO: " + listaCliente.get(i).getLoginAcesso());
             }
+    		return 1;
     	}
     	else {
     		JOptionPane.showMessageDialog(null, "Nao Possui Clientes Cadastrados:\n");
+    		return 0;
     	}
     }
 }

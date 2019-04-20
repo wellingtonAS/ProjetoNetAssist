@@ -32,7 +32,7 @@ public class Adm extends Funcionario{
             novoTecnico.setUsuario(usuario);
             novoTecnico.setSenha(senha); 
             listaFuncionario.add(novoTecnico);
-            ver = novoCpf.verificarExisteCpf(null, novoTecnico.getCpf());
+            ver = novoCpf.verificarExisteCpf(listaFuncionario, novoTecnico.getCpf());
             if(ver == 0){
             	return 1;
             }
@@ -64,12 +64,11 @@ public class Adm extends Funcionario{
             	return -1;
             }             
         }
-    }
-    
+    }    
     public int alterarFuncionario(ArrayList<Funcionario> listaFuncionario, int indice, String id, String usuario, String senha){
 		if(id.equals("1")){
 			listaFuncionario.get(indice).setUsuario(usuario);;
-			ver = novoCpf.verificarExisteCpf(listaFuncionario, usuario);
+			ver = novaSenha.validarUsuario(listaFuncionario, usuario);
             if(ver == 0){
             	return 1;
             }
@@ -82,7 +81,6 @@ public class Adm extends Funcionario{
 			return 1;
 		}
 	}
- 
     public int deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id){
         listaFuncionario.remove(id);
         if(listaFuncionario.get(id)== null){
@@ -91,6 +89,5 @@ public class Adm extends Funcionario{
         else{
         	return -1;
         } 
-    }
-    
+    }    
 }

@@ -1,5 +1,7 @@
 package com.netAssist;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 public class Contrato implements ValidacaoEntradas{
@@ -46,5 +48,12 @@ public class Contrato implements ValidacaoEntradas{
 			return 0;
 		}
     }
-    
+    public int validarStatus(ArrayList<Cliente> listaCliente, int indice, String sts){	
+		if(listaCliente.get(indice).getStatusContrato().equals(sts)){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+    }    
 }

@@ -168,7 +168,7 @@ public class NetAssist {
             				index = cpf.verificarCpfIndex(listaFuncionarios, cpfTeste);
             				if(index != -1){       			
                 				do{
-                		            id = JOptionPane.showInputDialog("ALTERACAO DE DADOS CADASTRAIS:!\n\nQual Dado Voce Deseja Alterar?\n"
+                		            id = JOptionPane.showInputDialog("ALTERACAO DE DADOS CADASTRAIS:\n\nQual Dado Voce Deseja Alterar?\n"
                 		                + "1 - USUARIO\n2 - SENHA");
                 		            
                 		            id = id.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
@@ -296,27 +296,31 @@ public class NetAssist {
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Cadastrar Clientes!");
         				}
         			}
-        			
-        			
-        			
-        			
-        			
-        			
-        			
-        			
-        			
-        			
-        			
-        			
         			else if(id.equals("6")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					if(listaClientes.isEmpty() != true){
-        						tecnico.setCpf(cpf.validarCpf());
-                				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-                				if(index != -1){
-                    				id = contrato.validaroptioncao();
-                    				tecnico.alterarStatusCliente(listaClientes, index, id); 
-                    				JOptionPane.showMessageDialog(null, "Cliente Alterado com Sucesso!");
+        						cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
+                				index = cpf.verificarCpfIndexCliente(listaClientes, cpfTeste);
+                				if(index != -1){       			
+                					do{
+                			            statusContratoTeste = JOptionPane.showInputDialog("NOVO STATUS DO CONTRATO\n\n1 - Ativo\n2 - Bloqueado\n"
+                			            		+ "DIGITE O VALOR CORRESPONDENTE: ");        			            
+                			            statusContratoTeste = statusContratoTeste.replaceAll(" ", ""); //Metodo para remover os espacos vazios na String
+                			            ver = contrato.validarOpcao(statusContratoTeste);
+                			            if(ver == 0){
+                        	            	JOptionPane.showMessageDialog(null, "Opcao Invalida!\n");
+                        	            }        			            
+                			        }while(ver == 0);
+                    				ver = 0;
+                			        
+            			        	ver = tecnico.alterarStatusCliente(listaClientes, index, statusContratoTeste); 
+            			        	if(ver == 1){
+            			        		JOptionPane.showMessageDialog(null, "Funcionario Alterado com Sucesso!");
+            			        	}
+            			        	else{
+            			        		JOptionPane.showMessageDialog(null, "Ocorreu Algum Problema Duarante a Alteracao!");
+            			        	}
+            			        	ver = 0;
                 				}
                 				else{
                 					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
@@ -329,15 +333,20 @@ public class NetAssist {
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Alterar Dados deste Cliente!");
         				}
-        			}
+        			}		
         			else if(id.equals("7")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					if(listaClientes.isEmpty() != true){
-        						tecnico.setCpf(cpf.validarCpf());
-                				index = cpf.verificarCpfIndexCliente(listaClientes, tecnico.getCpf());
-                				if(index != -1){
-                					tecnico.deletarCliente(listaClientes, index);
-                    				JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
+        						cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
+                				index = cpf.verificarCpfIndexCliente(listaClientes, cpfTeste);
+                				if(index != -1 && index != 0){
+                					ver = tecnico.deletarCliente(listaClientes, index);
+                					if(ver == 1){
+                						JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
+                					}
+                					else{
+                						JOptionPane.showMessageDialog(null, "Ocorreu Um Problema Ao Deletar o Cliente Informado!");
+                					}
                 				}
                 				else{
                 					JOptionPane.showMessageDialog(null, "Cliente Inexistente!");
@@ -350,7 +359,7 @@ public class NetAssist {
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Clientes!");
         				}
-        			}
+        			}  			
         			else if(id.equals("8")){
         				funcionario.listarCliente(listaClientes);
         			}
