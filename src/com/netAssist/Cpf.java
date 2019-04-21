@@ -3,13 +3,11 @@ package com.netAssist;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Cpf {
 	public String cpf;
 	public int tam;
 	public int test = 0;
-        
+    //METODO PARA VERIFICAR SE O CPF ESTA NO FORMATO PADRAO    
     public int validarCpf(String cpf){
 		test = 0;
         if(cpf.matches("[0-9]+") && cpf.length() == 11){
@@ -17,6 +15,7 @@ public class Cpf {
     	}
     	return test;
     }
+    //METODO PARA VERIFICAR QUAL É O INDICE DO CPF PASSADO COMO PARAMETRO DA LISTA DE FUNCIONARIOS
     public int verificarCpfIndex(ArrayList<Funcionario> listaFuncionario, String cpf){
     	int c = -1;
     	int i;
@@ -33,7 +32,7 @@ public class Cpf {
     	}
     	return c;
     }
-    
+  //METODO PARA VERIFICAR SE O CPF PASSADO COMO PARAMETRO É EXISTENTE
     public int verificarExisteCpf(ArrayList<Funcionario> listaFuncionario, String cpf){
     	int c = -1;
     	int i;
@@ -47,7 +46,7 @@ public class Cpf {
 		}
     	return c;
     }
-    
+  //METODO PARA VERIFICAR QUAL É O INDICE DO CPF PASSADO COMO PARAMETRO DA LISTA DE CLIENTES
     public int verificarCpfIndexCliente(ArrayList<Cliente> listaCliente, String cpf){
     	int c = -1;
     	int i;

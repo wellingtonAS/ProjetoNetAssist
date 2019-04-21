@@ -64,6 +64,7 @@ public class Adm extends Funcionario{
             }             
         }
     }    
+    //METODO PARA REALIZAR ALTERAÇÕES EM FUNCIONARIO
     public int alterarFuncionario(ArrayList<Funcionario> listaFuncionario, int indice, String id, String usuario, String senha){
 		if(id.equals("1")){
 			listaFuncionario.get(indice).setUsuario(usuario);;
@@ -80,6 +81,7 @@ public class Adm extends Funcionario{
 			return 1;
 		}
 	}
+    //METODO PARA DELETAR UM FUNCIONARIO DA LISTA
     public int deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id, String cpf){
         listaFuncionario.remove(id);        
         if(listaFuncionario.isEmpty()){ 
@@ -92,6 +94,6 @@ public class Adm extends Funcionario{
             else{
             	return 1;
             }
-        } 
+        }  
     }    
 }

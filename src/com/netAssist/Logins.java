@@ -2,8 +2,6 @@ package com.netAssist;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Logins implements ValidacaoEntradas{
     private String autenticacao;
     private String tipoConexao;
@@ -50,6 +48,8 @@ public class Logins implements ValidacaoEntradas{
     public void setSenhaAcesso(String senhaAcesso) {
         this.senhaAcesso = senhaAcesso;
     } 
+    
+    //METODO PARA VALIDAR A OPCAO INSERIDA PELO USUARIO
     @Override
     public int validarOpcao(String op){
     	if((op.equals("1")) || (op.equals("2"))){
@@ -59,7 +59,7 @@ public class Logins implements ValidacaoEntradas{
 			return 0;
 		}
     }
-    
+    //METODO PARA VERIFICAR O INDICE DO USUARIO, DADO O LOGIN DE ACESSO
     public int verificarIndiceLogin(String usuarioT, String senhaT, ArrayList<Funcionario> listaFuncionario){
         int at = 0;
         for(int i=0; i<listaFuncionario.size(); i++){

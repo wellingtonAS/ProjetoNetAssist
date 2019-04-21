@@ -12,7 +12,7 @@ import com.netAssist.Endereco;
 import com.netAssist.Funcionario;
 
 public class AdmTeste {
-	ArrayList<Funcionario> listaF = new ArrayList();
+	ArrayList<Funcionario> listaF = new ArrayList<Funcionario>();
 	Adm admin = new Adm();
 	Adm adminT = new Adm();
 	Adm adm = new Adm();
@@ -38,21 +38,32 @@ public class AdmTeste {
 	@Test
 	public void testAdm() {
 		Adm admin1 = new Adm();
+		admin1.setNome("null");
 	}
 
 	@Test
 	public void testAdmConstrutor() {
 		Adm admin2 = new Adm("321", "321", "Tecnico", "NOME TESTE", "98745632101", ender);
+		admin2.getCpf();
 	}
-
+	
 	@Test
-	public void testCadastrarFuncionario() {
+	public void testCadastrarFuncionarioTecnico() {
 		assertEquals(1, admin.cadastrarFuncionario(listaF, "1", "NOME TESTE 2", "12345678909", "CIDADELA", "ARUNA", "21", "21"));
+	}
+	
+	@Test
+	public void testCadastrarFuncionarioAdm() {
 		assertEquals(1, admin.cadastrarFuncionario(listaF, "2", "NOME TESTE 3", "09847845699", "CIDADELA2", "ARUNA2", "12", "12"));
 	}
+	
 	@Test
-	public void testAlterarFuncionario() {
+	public void testAlterarFuncionarioUsuario() {
 		assertEquals(1, admin.alterarFuncionario(listaF, 0, "1", "000", "000"));
+	}
+	
+	@Test
+	public void testAlterarFuncionarioSenha() {
 		assertEquals(1, admin.alterarFuncionario(listaF, 0, "2", "000", "000"));
 	}
 

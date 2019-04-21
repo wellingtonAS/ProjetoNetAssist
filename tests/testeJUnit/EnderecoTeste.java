@@ -18,11 +18,13 @@ public class EnderecoTeste {
 	@Test
 	public void testEndereco() {
 		Endereco end2 = new Endereco();
+		end2.getCidade();
 	}
 
 	@Test
 	public void testEnderecoStringString() {
 		Endereco end = new Endereco("Taquarana", "AL");
+		end.getCidade();
 	}
 
 	@Test

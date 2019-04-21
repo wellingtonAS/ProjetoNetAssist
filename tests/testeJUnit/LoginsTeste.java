@@ -12,11 +12,12 @@ import com.netAssist.Funcionario;
 import com.netAssist.Logins;
 
 public class LoginsTeste {
-	ArrayList<Funcionario> func = new ArrayList();
+	ArrayList<Funcionario> func = new ArrayList<Funcionario>();
 	Funcionario f = new Funcionario();
 	Adm admin = new Adm();
 	Logins lg = new Logins();
 	String option;
+	
 	@Before
 	public void setUp() throws Exception {
 		lg.setAutenticacao("1");
@@ -27,18 +28,19 @@ public class LoginsTeste {
 		admin.setUsuario("123");
 		func.add(admin);
 		f.setUsuario("123");
-		f.setSenha("123");
-		
+		f.setSenha("123");	
 	}
 
 	@Test
 	public void testLogins() {
 		Logins lg = new Logins();
+		lg.getAutenticacao();
 	}
 
 	@Test
 	public void testLoginsStringStringStringString() {
 		Logins lg1 = new Logins("1", "1", "321", "321");
+		lg1.getAutenticacao();
 	}
 
 	@Test
@@ -64,6 +66,10 @@ public class LoginsTeste {
 	@Test
 	public void testValidarOpcaoAutenticacaoUm() {
 		assertEquals(1, lg.validarOpcao("1"));
+	}
+	
+	@Test
+	public void testValidarOpcaoAutenticacaoNaoExiste() {
 		assertEquals(0, lg.validarOpcao("3"));
 	}
 
@@ -71,5 +77,4 @@ public class LoginsTeste {
 	public void testVerificarIndiceLogin() {
 		assertEquals(0, lg.verificarIndiceLogin(f.getUsuario(), f.getSenha(), func));
 	}
-
 }

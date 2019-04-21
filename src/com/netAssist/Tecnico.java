@@ -1,7 +1,6 @@
 package com.netAssist;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class Tecnico extends Funcionario{
 
@@ -9,16 +8,13 @@ public class Tecnico extends Funcionario{
 
     public Tecnico(String usuario, String senha, String cargo, String nome, String cpf, Endereco end) {
         super(usuario, senha, cargo, nome, cpf, end);
-    }
-     
-    //Metodo para realizar insercao de Cliente em em ArrayList
+    }   
+    //METODO PARA CADASTRAR CLIENTE EM UMA LISTA
     public int cadastrarCliente(ArrayList<Cliente> listaCliente, String nome, String cpf, String cidade, String estado, String user, String senhaAcesso, String velocidade, String valor, String statusContrato, String tipoConexao){
-    	Logins login = new Logins();
         Cliente novoCliente = new Cliente();
         Contrato novoContrato = new Contrato();
         Logins novoLogin = new Logins();
         Cpf novoCpf = new Cpf();
-        Senha novaSenha = new Senha();
         Endereco novoEndereco = new Endereco();
         novoCliente.setEnd(novoEndereco);
         novoCliente.setContrato(novoContrato);
@@ -44,17 +40,7 @@ public class Tecnico extends Funcionario{
         }
         novoCliente.setLoginAcesso(user);
         novoCliente.setSenhaAcesso(senhaAcesso);       
-        listaCliente.add(novoCliente);
-        System.out.println(listaCliente.get(0).getAutenticacao());
-        //a lista tá ficando null mesmo add
-        
-        
-        
-        
-        
-        
-        
-        
+        listaCliente.add(novoCliente);       
         ver = novoCpf.verificarCpfIndexCliente(listaCliente, novoCliente.getCpf());
         if(ver != -1){
         	return 1;
@@ -63,13 +49,14 @@ public class Tecnico extends Funcionario{
         	return -1;
         }     
     }
+    //METODO PARA ALTERAR STATUS DE UM CLIENTE
     public int alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
     	Contrato contratoTeste = new Contrato();
     	int ver = 0;
 		if(id.equals("1")){
 			listaCliente.get(indice).setStatusContrato("Ativo");
-			ver = contratoTeste.validarStatus(listaCliente, indice, "Ativo");
-            if(ver == 0){
+			ver = contratoTeste.validarStatus(listaCliente, indice, listaCliente.get(indice).getStatusContrato());
+            if(ver == 1){
             	return 1; 
             }
             else{
@@ -78,8 +65,8 @@ public class Tecnico extends Funcionario{
 		}
 		else{
 			listaCliente.get(indice).setStatusContrato("Bloqueado");
-			ver = contratoTeste.validarStatus(listaCliente, indice, "Bloqueado");
-            if(ver == 0){
+			ver = contratoTeste.validarStatus(listaCliente, indice, listaCliente.get(indice).getStatusContrato());
+            if(ver == 1){
             	return 1;
             }
             else{
@@ -87,14 +74,19 @@ public class Tecnico extends Funcionario{
             } 
 		}
 	}   
-    //Metodo para deletar Cliente da lista
-    public int deletarCliente(ArrayList<Cliente> listaCliente, int id){
-        listaCliente.remove(id);
-        if(listaCliente.get(id)== null){
+    //METODO PARA DELETAR CLIENTE DE UMA LISTA
+    public int deletarCliente(ArrayList<Cliente> listaCliente, int id, String cpf){
+    	listaCliente.remove(id);        
+        if(listaCliente.isEmpty()){ 
         	return 1;
         }
         else{
-        	return -1;
-        }
+        	if(listaCliente.get(id)!= null && listaCliente.get(id).getCpf().equals(cpf)){
+            	return -1;
+            }
+            else{
+            	return 1;
+            }
+        } 
     }
 }

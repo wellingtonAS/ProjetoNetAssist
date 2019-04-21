@@ -2,8 +2,6 @@ package com.netAssist;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Funcionario extends Pessoa{
     
     private String usuario;
@@ -44,10 +42,9 @@ public class Funcionario extends Pessoa{
         this.cargo = cargo;
     } 
     
-    //Metodo para verificar a autenticidade dos funcionarios listados! 
+    //METODO PARA VERIFICAR A AUTENTICIDADE DOS FUNCIONARIOS LISTADOS 
     public int efetuarLogin(String usuarioT, String senhaT, ArrayList<Funcionario> listaFuncionario){
     	int at = -1;
-        int atAux = -1;
         for(i=0; i<listaFuncionario.size(); i++){
             if((usuarioT.equals(listaFuncionario.get(i).getUsuario()))&&(senhaT.equals(listaFuncionario.get(i).getSenha()))){
                 at = 2;

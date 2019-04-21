@@ -2,8 +2,6 @@ package com.netAssist;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Contrato implements ValidacaoEntradas{
     private String velocidade;
     private String valorMensal;
@@ -39,6 +37,7 @@ public class Contrato implements ValidacaoEntradas{
     public void setStatusContrato(String statusContrato) {
         this.statusContrato = statusContrato;
     }
+    //METODO PARA VALIDAR A OPCAO DIGITADA PELO O USUARIO
     @Override
     public int validarOpcao(String op){      
     	if((op.equals("1")) || (op.equals("2"))){
@@ -48,7 +47,8 @@ public class Contrato implements ValidacaoEntradas{
 			return 0;
 		}
     }
-    public int validarStatus(ArrayList<Cliente> listaCliente, int indice, String sts){	
+    //METODO PARA VALIDAR O STATUS DO CLIENTE DIGITADO PELO USUARIO
+    public int validarStatus(ArrayList<Cliente> listaCliente, int indice, String sts){
 		if(listaCliente.get(indice).getStatusContrato().equals(sts)){
 			return 1;
 		}

@@ -8,8 +8,8 @@ public class NetAssist {
     public static void main(String[] args) { 
 
         //Instanciamento dos Arrays
-        ArrayList<Funcionario> listaFuncionarios = new ArrayList();
-        ArrayList<Cliente> listaClientes = new ArrayList();
+        ArrayList<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
+        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
        
         Menu menu = new Menu(); 
         Adm adm = new Adm();
@@ -17,13 +17,13 @@ public class NetAssist {
         Funcionario funcionario = new Funcionario();
         Cpf cpf = new Cpf();
         Logins logins = new Logins();
-        Endereco endereco = new Endereco(); //MODIFICADO
-        Contrato contrato = new Contrato(); // MODIFICADO
-        Cliente cliente = new Cliente(); //MODIFICADO
+        Endereco endereco = new Endereco(); 
+        Contrato contrato = new Contrato(); 
+        Cliente cliente = new Cliente();
         Senha senha = new Senha();
-        cliente.setEnd(endereco); //MODIFICADO
-        cliente.setContrato(contrato); //MODIFICADO
-        cliente.setLogin(logins); //MODIFICADO
+        cliente.setEnd(endereco); 
+        cliente.setContrato(contrato); 
+        cliente.setLogin(logins); 
         String id = null;  
         String usuarioTeste = null;
         String senhaTeste = null;
@@ -35,7 +35,6 @@ public class NetAssist {
         String velocidadeTeste = null;
         String statusContratoTeste = null;
         String tipoConTeste = null;
-        String op = null;
         int ver = 0;
         int index;
         int indexLogin;
@@ -103,6 +102,7 @@ public class NetAssist {
         	            }
         	        }while(ver == 0);
         			ver = 0;
+        			//OPCAO PARA REALIZAR CADASTRO DE FUNCIONARIO
         			if(id.equals("1")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){      					
         					do{
@@ -162,6 +162,7 @@ public class NetAssist {
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Cadastrar Funcionario!");
         				}
         			}
+        			//OPCAO PARA ALTERAR DADOS DE ACESSO DE FUNCIONARIO
         			else if(id.equals("2")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){
         					cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO FUNCIONARIO QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
@@ -213,6 +214,7 @@ public class NetAssist {
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Alterar Dados deste Funcionario!");
         				}
         			}
+        			//OPCAO PARA DELETAR FUNCIONARIO
         			else if(id.equals("3")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Administrador")){
         					cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO FUNCIONARIO QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
@@ -234,13 +236,15 @@ public class NetAssist {
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Funcionario!");
         				}
         			}
+        			//OPCAO PARA REALIZAR LISTAGEM DE FUNCIONARIO
         			else if(id.equals("4")){
         				for(int i=0; i<listaFuncionarios.size(); i++){
         	        		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n\nNOME: " + listaFuncionarios.get(i).getNome() + "\n"
         	        				+ "CPF: " + listaFuncionarios.get(i).getCpf() + "\nCIDADE: " + listaFuncionarios.get(i).getCidade() + "\n"
         	        						+ "ESTADO: " + listaFuncionarios.get(i).getEstado() + "\nCARGO: " + listaFuncionarios.get(i).getCargo());
-        	        }
+        				}
         			}
+        			//OPCAO PARA REALIZAR CADASTRO DE CLIENTE
         			else if(id.equals("5")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					nomeTeste = JOptionPane.showInputDialog("CADASTRAR CLIENTE!\n\nNOME: ").trim().toUpperCase();
@@ -300,6 +304,7 @@ public class NetAssist {
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Cadastrar Clientes!");
         				}
         			}
+        			//OPCAO PARA REALIZAR ALTERACAO DO STATUS DO CLIENTE
         			else if(id.equals("6")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					if(listaClientes.isEmpty() != true){
@@ -337,14 +342,15 @@ public class NetAssist {
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Alterar Dados deste Cliente!");
         				}
-        			}		
+        			}
+        			//OPCAO PARA DELETAR CLIENTE
         			else if(id.equals("7")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
         					if(listaClientes.isEmpty() != true){
         						cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
                 				index = cpf.verificarCpfIndexCliente(listaClientes, cpfTeste);
                 				if(index != -1 && index != 0){
-                					ver = tecnico.deletarCliente(listaClientes, index);
+                					ver = tecnico.deletarCliente(listaClientes, index, listaClientes.get(index).getCpf());
                 					if(ver == 1){
                 						JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
                 					}
@@ -363,7 +369,8 @@ public class NetAssist {
         				else{
         					JOptionPane.showMessageDialog(null, "Voce Nao Tem Autorizacao para Deletar Clientes!");
         				}
-        			}  			
+        			}  	
+        			//OPCAO PARA REALIZAR LISTAGEM DE CLIENTES
         			else if(id.equals("8")){
         				if(listaClientes.size() >= 1 && listaClientes.isEmpty() != true) {  
         		    		for(int i=0; i<listaClientes.size(); i++){

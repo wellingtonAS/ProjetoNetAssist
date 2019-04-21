@@ -12,10 +12,10 @@ import com.netAssist.Cpf;
 import com.netAssist.Funcionario;
 
 public class CpfTeste {
-	ArrayList<Funcionario> listaFC = new ArrayList();
-	ArrayList<Funcionario> listaFC2 = new ArrayList();
-	ArrayList<Cliente> listaC1 = new ArrayList();
-	ArrayList<Cliente> listaC2 = new ArrayList();
+	ArrayList<Funcionario> listaFC = new ArrayList<Funcionario>();
+	ArrayList<Funcionario> listaFC2 = new ArrayList<Funcionario>();
+	ArrayList<Cliente> listaC1 = new ArrayList<Cliente>();
+	ArrayList<Cliente> listaC2 = new ArrayList<Cliente>();
 	Cpf cpf = new Cpf();
 	Cliente c = new Cliente();
 	Funcionario f1 = new Funcionario();
@@ -34,16 +34,25 @@ public class CpfTeste {
 	}
 
 	@Test
-	public void testVerificarCpfIndex() {
+	public void testVerificarCpfIndex1() {
 		assertEquals(0, cpf.verificarCpfIndex(listaFC, f1.getCpf()));
+	}
+	
+	@Test
+	public void testVerificarCpfIndex2() {
 		assertEquals(0, cpf.verificarCpfIndex(listaFC2, f1.getCpf()));
 	}
 
 	@Test
-	public void testVerificarCpfIndexCliente() {
+	public void testVerificarCpfIndexCliente1() {
 		assertEquals(0, cpf.verificarCpfIndexCliente(listaC1, c.getCpf()));
+	}
+	
+	@Test
+	public void testVerificarCpfIndexCliente2() {
 		assertEquals(-1, cpf.verificarCpfIndexCliente(listaC2, c.getCpf()));
 	}
+	
 	@Test
 	public void testverificarExisteCpf(){
 		assertEquals(0, cpf.verificarExisteCpf(listaFC, "12345678909"));

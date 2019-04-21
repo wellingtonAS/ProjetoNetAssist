@@ -53,6 +53,5 @@ public abstract class Pessoa {
 
     public void setEnd(Endereco end) {
         this.end = end;
-    }  
-    
+    }      
 }

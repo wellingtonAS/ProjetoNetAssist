@@ -11,7 +11,7 @@ import com.netAssist.Endereco;
 import com.netAssist.Funcionario;
 
 public class FuncionarioTeste {
-	ArrayList<Funcionario> listaFunc = new ArrayList();
+	ArrayList<Funcionario> listaFunc = new ArrayList<Funcionario>();
 	Funcionario fAux = new Funcionario();
 	Funcionario f1 = new Funcionario();
 	Funcionario f2 = new Funcionario();
@@ -31,7 +31,7 @@ public class FuncionarioTeste {
 
 	@Test
 	public void testEfetuarLoginAutenticando() {
-		assertEquals(2, fAux.efetuarLogin(fAux.getUsuario(), fAux.getSenha(), listaFunc)); //Caso em que Usuario e Senha estão corretos	
+		assertEquals(2, fAux.efetuarLogin(fAux.getUsuario(), fAux.getSenha(), listaFunc)); //Caso em que Usuario e Senha estao corretos	
 	}
 }
 

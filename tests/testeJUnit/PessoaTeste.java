@@ -15,11 +15,13 @@ public class PessoaTeste {
 	@Before
 	public void setUp() throws Exception {
 		Funcionario f = new Funcionario();
+		f.getCargo();
 	}
 
 	@Test
 	public void testPessoaStringStringEndereco() {
 		Funcionario f1 = new Funcionario("Alexandre", "123", "1", "Alexandre Barbosa", "89442347504", end1);
+		f1.getCargo();
 	}
 	
 	@Test

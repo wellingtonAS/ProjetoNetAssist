@@ -34,11 +34,13 @@ public class ClienteTeste {
 	@Test
 	public void testCliente() {
 		Cliente c = new Cliente();
+		c.getCpf();
 	}
 
 	@Test
 	public void testClienteContratoStringStringEndereco() {
 		Cliente c1 = new Cliente(ct, "Maria", "43245648704", end);
+		c1.getCpf();
 	}
 
 	@Test
