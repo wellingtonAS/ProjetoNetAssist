@@ -1,7 +1,6 @@
 package com.netAssist;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class Adm extends Funcionario{
 
@@ -81,13 +80,18 @@ public class Adm extends Funcionario{
 			return 1;
 		}
 	}
-    public int deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id){
-        listaFuncionario.remove(id);
-        if(listaFuncionario.get(id)== null){
+    public int deletarFuncionario(ArrayList<Funcionario> listaFuncionario, int id, String cpf){
+        listaFuncionario.remove(id);        
+        if(listaFuncionario.isEmpty()){ 
         	return 1;
         }
         else{
-        	return -1;
+        	if(listaFuncionario.get(id)!= null && listaFuncionario.get(id).getCpf().equals(cpf)){
+            	return -1;
+            }
+            else{
+            	return 1;
+            }
         } 
     }    
 }

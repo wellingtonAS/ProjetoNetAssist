@@ -31,7 +31,7 @@ public class Tecnico extends Funcionario{
         novoCliente.setValorMensal(valor);   
         int ver;
         if(statusContrato.equals("1")){
-        	novoCliente.setStatusContrato("Ativo");
+        	novoCliente.setStatusContrato("Ativo"); 
         }
         else if(statusContrato.equals("2")){
         	novoCliente.setStatusContrato("Bloqueado");
@@ -45,6 +45,15 @@ public class Tecnico extends Funcionario{
         novoCliente.setLoginAcesso(user);
         novoCliente.setSenhaAcesso(senhaAcesso);       
         listaCliente.add(novoCliente);
+        System.out.println(listaCliente.get(0).getAutenticacao());
+        //a lista tá ficando null mesmo add
+        
+        
+        
+        
+        
+        
+        
         
         ver = novoCpf.verificarCpfIndexCliente(listaCliente, novoCliente.getCpf());
         if(ver != -1){
@@ -54,18 +63,6 @@ public class Tecnico extends Funcionario{
         	return -1;
         }     
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public int alterarStatusCliente(ArrayList<Cliente> listaCliente, int indice, String id){
     	Contrato contratoTeste = new Contrato();
     	int ver = 0;
@@ -73,7 +70,7 @@ public class Tecnico extends Funcionario{
 			listaCliente.get(indice).setStatusContrato("Ativo");
 			ver = contratoTeste.validarStatus(listaCliente, indice, "Ativo");
             if(ver == 0){
-            	return 1;
+            	return 1; 
             }
             else{
             	return -1;

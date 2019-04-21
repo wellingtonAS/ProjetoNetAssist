@@ -13,7 +13,7 @@ public class Senha {
 			for(i=0; i<listaFuncionario.size(); i++){
 				if(listaFuncionario.get(i).getUsuario().equals(user)){
 					teste = 0;
-					break;
+					break; 
 				}
 			}
 			if(listaFuncionario.size() == i){

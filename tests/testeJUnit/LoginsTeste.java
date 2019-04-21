@@ -63,7 +63,8 @@ public class LoginsTeste {
 
 	@Test
 	public void testValidarOpcaoAutenticacaoUm() {
-		assertEquals("1", lg.validarOpcao());
+		assertEquals(1, lg.validarOpcao("1"));
+		assertEquals(0, lg.validarOpcao("3"));
 	}
 
 	@Test

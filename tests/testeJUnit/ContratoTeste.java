@@ -2,6 +2,8 @@ package testeJUnit;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +11,7 @@ import com.netAssist.Cliente;
 import com.netAssist.Contrato;
 
 public class ContratoTeste {
+	ArrayList<Cliente> listaCL = new ArrayList();
 	Contrato ct1 = new Contrato();
 	Cliente cl = new Cliente();
 	
@@ -16,7 +19,9 @@ public class ContratoTeste {
 	public void setUp() throws Exception {
 		ct1.setVelocidade("10");
 		ct1.setValorMensal("60");
-		ct1.setStatusContrato("1");
+		ct1.setStatusContrato("Ativo");
+		cl.setContrato(ct1);
+		listaCL.add(cl);
 	}
 
 	@Test
@@ -41,7 +46,7 @@ public class ContratoTeste {
 
 	@Test
 	public void testGetStatusContrato() {
-		assertEquals("1", ct1.getStatusContrato());
+		assertEquals("Ativo", ct1.getStatusContrato());
 	}
 
 
@@ -50,8 +55,16 @@ public class ContratoTeste {
 		Contrato ct1 = new Contrato();
 		Cliente cl = new Cliente();
 		cl.setContrato(ct1);
-		assertEquals("1", ct1.validarOpcao());
-		assertEquals("2", ct1.validarOpcao());
+		assertEquals(1, ct1.validarOpcao("1"));
+		assertEquals(0, ct1.validarOpcao("3"));
+	}
+	@Test
+	public void testValidarStatus() {
+		Contrato ct1 = new Contrato();
+		Cliente cl = new Cliente();
+		cl.setContrato(ct1);
+		assertEquals(1, ct1.validarStatus(listaCL, 0, "Ativo"));
+		assertEquals(0, ct1.validarStatus(listaCL, 0, "Bloqueado"));
 	}
 
 }

@@ -15,17 +15,20 @@ public class MenuTeste {
 
 	@Test
 	public void testExibirMenu() {
-		assertEquals("1", menu.exibirMenu());
+		assertEquals(1, menu.exibirMenu("1"));
+		assertEquals(0, menu.exibirMenu("10"));
 	}
 
 	@Test
 	public void testValidarTipoFuncionario() {
-		assertEquals("1", menu.validarOpcao());
+		assertEquals(1, menu.validarOpcao("1"));
+		assertEquals(0, menu.validarOpcao("3"));
 	}
 
 	@Test
 	public void testValidarOpcaoAlteracao() {
-		assertEquals("1", menu.validarOpcaoAlteracao());
+		assertEquals(1, menu.validarOpcaoAlteracao("1"));
+		assertEquals(0, menu.validarOpcaoAlteracao("3"));
 	}
 
 }

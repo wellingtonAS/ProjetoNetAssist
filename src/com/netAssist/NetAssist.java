@@ -11,7 +11,7 @@ public class NetAssist {
         ArrayList<Funcionario> listaFuncionarios = new ArrayList();
         ArrayList<Cliente> listaClientes = new ArrayList();
        
-        Menu menu = new Menu();
+        Menu menu = new Menu(); 
         Adm adm = new Adm();
         Tecnico tecnico = new Tecnico();
         Funcionario funcionario = new Funcionario();
@@ -218,7 +218,7 @@ public class NetAssist {
         					cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO FUNCIONARIO QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
             				index = cpf.verificarCpfIndex(listaFuncionarios, cpfTeste);
             				if(index != -1 && index != 0){
-            					ver = adm.deletarFuncionario(listaFuncionarios, index);
+            					ver = adm.deletarFuncionario(listaFuncionarios, index, cpfTeste);
             					if(ver == 1){
             						JOptionPane.showMessageDialog(null, "Funcionario Deletado com Sucesso!");
             					}
@@ -235,7 +235,11 @@ public class NetAssist {
         				}
         			}
         			else if(id.equals("4")){
-        				funcionario.listarFuncionario(listaFuncionarios);
+        				for(int i=0; i<listaFuncionarios.size(); i++){
+        	        		JOptionPane.showMessageDialog(null, "LISTA DE FUNCIONARIOS:\n\nNOME: " + listaFuncionarios.get(i).getNome() + "\n"
+        	        				+ "CPF: " + listaFuncionarios.get(i).getCpf() + "\nCIDADE: " + listaFuncionarios.get(i).getCidade() + "\n"
+        	        						+ "ESTADO: " + listaFuncionarios.get(i).getEstado() + "\nCARGO: " + listaFuncionarios.get(i).getCargo());
+        	        }
         			}
         			else if(id.equals("5")){
         				if(listaFuncionarios.get(indexLogin).getCargo().equals("Tecnico")){
@@ -316,9 +320,9 @@ public class NetAssist {
             			        	ver = tecnico.alterarStatusCliente(listaClientes, index, statusContratoTeste); 
             			        	if(ver == 1){
             			        		JOptionPane.showMessageDialog(null, "Funcionario Alterado com Sucesso!");
-            			        	}
+            			        	} 
             			        	else{
-            			        		JOptionPane.showMessageDialog(null, "Ocorreu Algum Problema Duarante a Alteracao!");
+            			        		JOptionPane.showMessageDialog(null, "Ocorreu Algum Problema Durante a Alteracao!");
             			        	}
             			        	ver = 0;
                 				}
@@ -361,7 +365,19 @@ public class NetAssist {
         				}
         			}  			
         			else if(id.equals("8")){
-        				funcionario.listarCliente(listaClientes);
+        				if(listaClientes.size() >= 1 && listaClientes.isEmpty() != true) {  
+        		    		for(int i=0; i<listaClientes.size(); i++){
+        		            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n\nNOME: " + listaClientes.get(i).getNome() + "\n"
+        		            			+ "CPF: " + listaClientes.get(i).getCpf() + "\nCIDADE: " + listaClientes.get(i).getCidade() + "\n"
+        		            					+ "ESTADO: " + listaClientes.get(i).getEstado() + "\nSTATUS DO CONTRATO: " + listaClientes.get(i).getStatusContrato() + "\n"
+        		            					+ "VELOCIDADE DO PLANO: " + listaClientes.get(i).getVelocidade() + "M" + "\nVALOR DO PLANO: R$" + listaClientes.get(i).getValorMensal() + "\n"
+        		            							+ "TIPO DE AUTENTICACAO: " + listaClientes.get(i).getAutenticacao() + "\n"
+        		            							+ "LOGIN DE ACESSO: " + listaClientes.get(i).getLoginAcesso());
+        		            }
+        		    	}
+        		    	else {
+        		    		JOptionPane.showMessageDialog(null, "Nao Possui Clientes Cadastrados:\n");
+        		    	}
         			}
         		}while(!(id.equals("9")) && !(id.equals("0")));
         		if(id.equals("0")){
@@ -379,5 +395,5 @@ public class NetAssist {
                 }     		
         	}
         }while(ver != 1);
-    } 
+    }  
 }   
