@@ -260,7 +260,7 @@ public class NetAssist {
         			        cidadeTeste = JOptionPane.showInputDialog("CIDADE: ").trim().toUpperCase();
         			        estadoTeste = JOptionPane.showInputDialog("ESTADO: ").trim().toUpperCase();
         			        velocidadeTeste = JOptionPane.showInputDialog("VELOCIDADE DO PLANO: ").trim().toUpperCase();
-        			        estadoTeste = JOptionPane.showInputDialog("VALOR DO PLANO: ").trim().toUpperCase();	        
+        			        valorTeste = JOptionPane.showInputDialog("VALOR DO PLANO: ").trim().toUpperCase();	        
         			        do{
         			            statusContratoTeste = JOptionPane.showInputDialog("STATUS DO CONTRATO\n\n1 - Ativo\n2 - Bloqueado\n"
         			            		+ "DIGITE O VALOR CORRESPONDENTE: ");        			            
@@ -349,7 +349,7 @@ public class NetAssist {
         					if(listaClientes.isEmpty() != true){
         						cpfTeste = JOptionPane.showInputDialog("DIGITE O CPF DO CLIENTE QUE DESEJA ALTERAR (Sem Postos e virgulas): ");
                 				index = cpf.verificarCpfIndexCliente(listaClientes, cpfTeste);
-                				if(index != -1 && index != 0){
+                				if(index != -1){
                 					ver = tecnico.deletarCliente(listaClientes, index, listaClientes.get(index).getCpf());
                 					if(ver == 1){
                 						JOptionPane.showMessageDialog(null, "Cliente Deletado com Sucesso!");
@@ -377,10 +377,10 @@ public class NetAssist {
         		            	JOptionPane.showMessageDialog(null, "LISTA DE CLIENTES:\n\nNOME: " + listaClientes.get(i).getNome() + "\n"
         		            			+ "CPF: " + listaClientes.get(i).getCpf() + "\nCIDADE: " + listaClientes.get(i).getCidade() + "\n"
         		            					+ "ESTADO: " + listaClientes.get(i).getEstado() + "\nSTATUS DO CONTRATO: " + listaClientes.get(i).getStatusContrato() + "\n"
-        		            					+ "VELOCIDADE DO PLANO: " + listaClientes.get(i).getVelocidade() + "M" + "\nVALOR DO PLANO: R$" + listaClientes.get(i).getValorMensal() + "\n"
+        		            					+ "VELOCIDADE DO PLANO: " + listaClientes.get(i).getVelocidade() + "M" + "\nVALOR DO PLANO: R$ " + listaClientes.get(i).getValorMensal() + "\n"
         		            							+ "TIPO DE AUTENTICACAO: " + listaClientes.get(i).getAutenticacao() + "\n"
         		            							+ "LOGIN DE ACESSO: " + listaClientes.get(i).getLoginAcesso());
-        		            }
+        		            } 
         		    	}
         		    	else {
         		    		JOptionPane.showMessageDialog(null, "Nao Possui Clientes Cadastrados:\n");
